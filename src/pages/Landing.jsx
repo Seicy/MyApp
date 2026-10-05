@@ -10,6 +10,13 @@ import {
   LineChart, Download, Lightbulb
 } from "lucide-react";
 
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+  FaWhatsapp,
+} from 'react-icons/fa'
+
 import Navbar from '../components/Navbar.jsx'
 import Button from '../components/Button.jsx'
 import FeatureCard from '../components/FeatureCard.jsx'
@@ -461,13 +468,6 @@ export default function Landing() {
   const [tab, setTab] = useState('Products')
   const statsRef = useRef(null)
 
-  const stats = [
-    ['1,200+', 'Products'],
-    ['350+', 'Customers'],
-    ['120+', 'Suppliers'],
-    ['99.9%', 'System Availability'],
-  ]
-
   useEffect(() => {
     const track = statsRef.current
     if (!track) return
@@ -497,54 +497,32 @@ export default function Landing() {
       <Navbar />
 
       {/* HERO */}
-      <section className="bg-slate-50">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
+      <section className="bg-[#005a9e]">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:py-24">
           <div>
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-              Kelola Bisnis Anda Lebih Mudah dengan MyApp
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl text-white">
+              Berhenti buang waktu mengurus sistem yang rumit. <span>Saatnya kembali fokus kembangkan bisnis anda.</span>
             </h1>
 
-            <p className="mt-5 max-w-lg text-lg text-slate-600">
-              Satu platform untuk mengelola produk, inventory,
-              pembelian, pelanggan, supplier, dan laporan bisnis.
+            <p className="mt-5 max-w-lg text-lg text-white">
+              Tidak perlu lagi banyak memiliki aplikasi terpisah,
+              BukaNota menyatukan semuanya dalam satu layar yang mudah dipahami
+              pemilik bisnis.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#fitur">
                 <Button
-                  variant="secondary"
-                  className="px-6 py-3"
+                  variant="primary"
+                  className="border-3 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
                 >
-                  Lihat Fitur
+                  Bebaskan waktu anda sekarang
                 </Button>
               </a>
             </div>
           </div>
 
           <DashMockup />
-        </div>
-      </section>
-
-{/* STATISTICS */}
-<section className="overflow-hidden border-y border-slate-200 bg-white">
-        <div
-          ref={statsRef}
-          className="flex w-max"
-        >
-          {[...stats, ...stats].map(([value, label], index) => (
-            <div
-              key={`${label}-${index}`}
-              className="stat-item flex w-[50vw] flex-none flex-col items-center justify-center px-6 py-10 text-center sm:w-[33.333vw] lg:w-[25vw]"
-            >
-              <p className="text-3xl font-extrabold text-blue-600">
-                {value}
-              </p>
-
-              <p className="text-sm text-slate-500">
-                {label}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -572,12 +550,12 @@ export default function Landing() {
       </section>
 
       {/* ERP MODULES */}
-      <section className="bg-white py-20">
+      <section className="bg-[#0c59a0] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="mx-auto mt-2 text-center text-3xl font-bold text">
+          <h2 className="mx-auto mt-2 text-center text-3xl font-bold text-white">
             Modul ERP
           </h2>
-          <p className="mx-auto mt-2 max-w-2xl text-center text-slate-600">
+          <p className="mx-auto mt-2 max-w-2xl text-center text-slate-600 text-white">
             Setiap modul menangani satu area kerja dan semuanya memakai data yang sama.
           </p>
 
@@ -742,32 +720,34 @@ export default function Landing() {
       </section>
 
       {/* BENEFITS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <h2 className="text-3xl font-bold">
-          Kenapa Menggunakan ERP?
-        </h2>
+<section className="bg-[#0c59a0]">
+  <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+    <h2 className="text-3xl font-bold text-white">
+      Kenapa Menggunakan ERP?
+    </h2>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {benefits.map(([Icon, title]) => (
-            <div
-              key={title}
-              className="flex items-center gap-3"
-            >
-              <div className="rounded-lg bg-blue-50 p-2.5 text-blue-600">
-                <Icon className="h-5 w-5" />
-              </div>
+    <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {benefits.map(([Icon, title]) => (
+        <div
+          key={title}
+          className="flex items-center gap-3"
+        >
+          <div className="rounded-lg bg-blue-50 p-2.5 text-blue-600">
+            <Icon className="h-5 w-5" />
+          </div>
 
-              <p className="font-medium">
-                {title}
-              </p>
-            </div>
-          ))}
+          <p className="font-medium text-white">
+            {title}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
-      <section className="px-4 pb-20 sm:px-6">
-        <div className="mx-auto max-w-5xl rounded-2xl bg-blue-600 px-6 py-14 text-center text-white">
+      <section className="px-4 pb-20 sm:px-6 bg-[#0c59a0]">
+        <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
           <h2 className="text-3xl font-bold">
             Siap Mengelola Bisnis dengan Lebih Mudah?
           </h2>
@@ -787,69 +767,173 @@ export default function Landing() {
         </div>
       </section>
 
-{/* FOOTER */}
-<footer className="border-t border-slate-200 bg-white">
-  <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
+      {/* FOOTER */}
+    <footer className="bg-[#021929]">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 text-slate-400 sm:px-6 md:grid-cols-4">
+        
+        {/* Brand */}
+        <div>
+          <img
+            src="/logo/Logo.png"
+            alt="Logo"
+            className="h-10 w-auto"
+          />
 
-    <div>
-      <p className="font-extrabold">
-        ERP SYSTEM
-      </p>
+          <p className="mt-3 text-lg font-medium text-white">
+            Stay connect with us
+          </p>
 
-      <p className="mt-3 text-sm text-slate-500">
-        Sistem ERP sederhana untuk membantu pengelolaan bisnis.
-      </p>
-    </div>
+          <div className="mt-4 flex items-center gap-3">
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+            >
+              <img
+                src="/logo/instagram.svg"
+                alt="Instagram"
+                className="h-5 w-5"
+              />
+            </a>
 
-    {[
-      [
-        'Product',
-        [
-          { label: 'Products', path: '/produk' },
-          { label: 'Inventory', path: '/inventory' },
-          { label: 'Purchasing', path: '/purchase-orders' },
-          { label: 'Reports', path: '/reports' },
-        ],
-      ],
-      [
-        'Company',
-        [
-          { label: 'About', path: '/tentang' },
-          { label: 'Contact', path: '/tentang/kontak' },
-          { label: 'FAQ', path: '/informasi/faq' },
-        ],
-      ],
-      [
-        'Resources',
-        [
-          { label: 'Documentation', path: '/informasi/dokumentasi' },
-          { label: 'Articles', path: '/informasi/artikel' },
-        ],
-      ],
-    ].map(([heading, links]) => (
-      <div key={heading}>
-        <p className="mb-3 font-semibold">
-          {heading}
-        </p>
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+            >
+              <img
+                src="/logo/facebook.svg"
+                alt="Facebook"
+                className="h-5 w-5"
+              />
+            </a>
 
-        {links.map((link) => (
-          <Link
-            key={link.path}
-            to={link.path}
-            className="block py-1 text-sm text-slate-600 transition hover:text-blue-600"
-          >
-            {link.label}
-          </Link>
-        ))}
+            <a
+              href="#"
+              aria-label="YouTube"
+              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+            >
+              <img
+                src="/logo/youtube.svg"
+                alt="YouTube"
+                className="h-5 w-5"
+              />
+            </a>
+
+            <a
+              href="#"
+              aria-label="WhatsApp"
+              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+            >
+              <img
+                src="/logo/whatsapp.svg"
+                alt="WhatsApp"
+                className="h-5 w-5"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* Product */}
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+            Product
+          </h3>
+
+          <div className="mt-4 flex flex-col gap-3">
+            <Link
+              to="/produk"
+              className="text-sm transition-colors hover:text-white"
+            >
+              Products
+            </Link>
+
+            <Link
+              to="/inventory"
+              className="text-sm transition-colors hover:text-white"
+            >
+              Inventory
+            </Link>
+
+            <Link
+              to="/purchasing"
+              className="text-sm transition-colors hover:text-white"
+            >
+              Purchasing
+            </Link>
+
+            <Link
+              to="/reports"
+              className="text-sm transition-colors hover:text-white"
+            >
+              Reports
+            </Link>
+          </div>
+        </div>
+
+        {/* Company */}
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+            Company
+          </h3>
+
+          <div className="mt-4 flex flex-col gap-3">
+            <Link
+              to="/tentang"
+              className="text-sm transition-colors hover:text-white"
+            >
+              About
+            </Link>
+
+            <Link
+              to="/tentang/kontak"
+              className="text-sm transition-colors hover:text-white"
+            >
+              Contact
+            </Link>
+
+            <Link
+              to="/informasi/faq"
+              className="text-sm transition-colors hover:text-white"
+            >
+              FAQ
+            </Link>
+          </div>
+        </div>
+
+        {/* Resources */}
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+            Resources
+          </h3>
+
+          <div className="mt-4 flex flex-col gap-3">
+            <Link
+              to="/informasi/dokumentasi"
+              className="text-sm transition-colors hover:text-white"
+            >
+              Documentation
+            </Link>
+
+            <Link
+              to="/informasi/artikel"
+              className="text-sm transition-colors hover:text-white"
+            >
+              Articles
+            </Link>
+          </div>
+        </div>
       </div>
-    ))}
 
-  </div>
-
-  <p className="border-t border-slate-100 py-5 text-center text-sm text-slate-500">
-    © 2026 ERP System. All rights reserved.
-  </p>
-</footer>
+      {/* Copyright */}
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
+          <p className="text-center text-sm text-slate-500">
+            © 2026 ERP System. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
     </div>
   )
 }

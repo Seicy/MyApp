@@ -6,7 +6,7 @@ export default function Button({
 }) {
   const v = {
     primary:
-      'bg-[#f8481c] text-white shadow-sm hover:bg-[#f8481c]/90',
+      'bg-[#0c59a0] text-white shadow-sm hover:bg-[#0c59a0]/90',
 
     secondary:
       'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50',

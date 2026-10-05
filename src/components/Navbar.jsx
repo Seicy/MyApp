@@ -175,7 +175,7 @@ export default function Navbar() {
               onClick={() => setLanguage('id')}
               className={`rounded-md px-2 py-1 text-xs font-semibold ${
                 language === 'id'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-[#0c59a0] text-white'
                   : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
               }`}
             >
@@ -186,7 +186,7 @@ export default function Navbar() {
               onClick={() => setLanguage('en')}
               className={`rounded-md px-2 py-1 text-xs font-semibold ${
                 language === 'en'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-[#0c59a0] text-white'
                   : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
               }`}
             >
@@ -218,7 +218,7 @@ export default function Navbar() {
 
           {/* Get Started */}
           <Link to="/harga">
-            <Button>
+            <Button className="bg-[#f8481c] hover:bg-[#f8481c]/90 text-white">
               {language === 'id'
                 ? 'Mulai Sekarang'
                 : 'Get Started'}
@@ -286,7 +286,7 @@ export default function Navbar() {
                 onClick={() => setLanguage('id')}
                 className={`rounded-md px-3 py-1 text-xs font-semibold ${
                   language === 'id'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-[#0c59a0] text-white'
                     : 'text-slate-500'
                 }`}
               >
@@ -297,7 +297,7 @@ export default function Navbar() {
                 onClick={() => setLanguage('en')}
                 className={`rounded-md px-3 py-1 text-xs font-semibold ${
                   language === 'en'
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-[#0c59a0] text-white'
                     : 'text-slate-500'
                 }`}
               >
@@ -343,7 +343,7 @@ export default function Navbar() {
               className="flex-1"
               onClick={() => setOpen(false)}
             >
-              <Button className="w-full">
+              <Button className="w-full bg-[#f8481c] hover:bg-[#f8481c]/90 text-white">
                 {language === 'id'
                   ? 'Mulai Sekarang'
                   : 'Get Started'}

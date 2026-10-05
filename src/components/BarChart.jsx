@@ -19,7 +19,7 @@ export default function BarChart({ data, labels, height = 140 }) {
           >
             <div className="flex w-full flex-1 items-end">
               <div
-                className="w-full rounded-t-md bg-blue-500 transition-all duration-300 hover:bg-blue-700"
+                className="w-full rounded-t-md bg-[#0c59a0]/90 transition-all duration-300 hover:bg-[#0c59a0]"
                 style={{ height: `${barHeight}px` }}
                 title={String(v)}
               />
