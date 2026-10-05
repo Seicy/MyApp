@@ -52,11 +52,11 @@ export default function Pos() {
       <Navbar />
 
       {/* HERO */}
-      <section className="bg-slate-50">
+      <section className="bg-[#0c59a0]">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
 
           {/* BREADCRUMB */}
-          <div className="mb-10 flex items-center gap-2 text-sm text-slate-500">
+          <div className="mb-10 flex items-center gap-2 text-sm text-white">
             <Link
               to="/produk"
               className="transition hover:text-blue-600"
@@ -66,7 +66,7 @@ export default function Pos() {
 
             <span>/</span>
 
-            <span className="font-medium text-slate-900">
+            <span className="font-medium text-white">
               Point Of Sale
             </span>
           </div>

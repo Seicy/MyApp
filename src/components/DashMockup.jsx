@@ -13,11 +13,12 @@ export default function DashMockup({ full = false }) {
   ]
 
   return (
-    <div className="card flex overflow-hidden bg-white rounded-2xl shadow-xl">
-
+    <div className="card flex w-full min-w-0 max-w-full overflow-hidden rounded-2xl bg-white shadow-xl">
       {full && (
         <div className="hidden w-40 shrink-0 space-y-2 border-r border-slate-200 bg-slate-50 p-3 text-xs text-slate-500 sm:block">
-          <p className="font-bold text-ink">ERP SYSTEM</p>
+          <p className="font-bold text-ink">
+            ERP SYSTEM
+          </p>
 
           {[
             'Dashboard',
@@ -42,26 +43,25 @@ export default function DashMockup({ full = false }) {
         </div>
       )}
 
-      <div className="min-w-0 flex-1 space-y-3 p-4">
-
+      <div className="min-w-0 w-full flex-1 space-y-3 overflow-hidden p-4">
         {/* Stats */}
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+        <div className="grid min-w-0 grid-cols-2 gap-2 sm:grid-cols-4">
           {stats.map(([I, l, v, iconColor, iconBg]) => (
             <div
               key={l}
-              className="rounded-lg border border-slate-200 bg-white p-3"
+              className="min-w-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-3"
             >
               <div
-                className={`mb-2 flex h-8 w-8 items-center justify-center rounded-lg ${iconBg}`}
+                className={`mb-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${iconBg}`}
               >
                 <I className={`h-4 w-4 ${iconColor}`} />
               </div>
 
-              <p className="text-[11px] text-slate-500">
+              <p className="truncate text-[11px] text-slate-500">
                 {l}
               </p>
 
-              <p className="text-sm font-bold text-slate-800">
+              <p className="truncate text-sm font-bold text-slate-800">
                 {v}
               </p>
             </div>
@@ -69,23 +69,24 @@ export default function DashMockup({ full = false }) {
         </div>
 
         {/* Sales Revenue + Recent Transactions */}
-        <div className="space-y-3">
-
+        <div className="min-w-0 space-y-3">
           {/* Sales Revenue */}
-          <div className="rounded-lg border border-blue-100 bg-white p-3">
+          <div className="min-w-0 overflow-hidden rounded-lg border border-blue-100 bg-white p-3">
             <p className="mb-2 text-xs font-semibold text-slate-700">
               Sales / Revenue
             </p>
 
-            <BarChart
-              data={salesData}
-              labels={months}
-              height={full ? 150 : 110}
-            />
+            <div className="min-w-0 max-w-full overflow-hidden">
+              <BarChart
+                data={salesData}
+                labels={months}
+                height={full ? 150 : 110}
+              />
+            </div>
           </div>
 
           {/* Recent Transactions */}
-          <div className="rounded-lg border border-slate-200 bg-white p-3 text-xs">
+          <div className="min-w-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-3 text-xs">
             <p className="mb-2 font-semibold text-slate-700">
               {full ? 'Purchase Orders' : 'Recent Transactions'}
             </p>
@@ -93,23 +94,23 @@ export default function DashMockup({ full = false }) {
             {purchaseOrders.map((p) => (
               <div
                 key={p.id}
-                className="flex justify-between border-t border-slate-100 py-2 first:border-0"
+                className="flex min-w-0 justify-between gap-3 border-t border-slate-100 py-2 first:border-0"
               >
-                <span>{p.no}</span>
+                <span className="shrink-0">
+                  {p.no}
+                </span>
 
-                <span className="hidden text-slate-500 sm:inline">
+                <span className="hidden min-w-0 truncate text-slate-500 sm:inline">
                   {p.supplier}
                 </span>
 
-                <span className="font-medium">
+                <span className="shrink-0 font-medium">
                   {rupiah(p.total)}
                 </span>
               </div>
             ))}
           </div>
-
         </div>
-
       </div>
     </div>
   )

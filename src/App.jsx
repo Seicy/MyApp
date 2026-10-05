@@ -29,6 +29,7 @@ import Kontak from "./pages/Kontak";
 import Keunggulan from "./pages/Keunggulan";
 import Tentang from "./pages/Tentang";
 import Harga from "./pages/Harga";
+import SolutionList from './pages/SolutionList'
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
         <Route path="/tentang/keunggulan" element={<Keunggulan />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/harga" element={<Harga />} />
+        <Route path="/solusi" element={<SolutionList />} />
 
         <Route element={<DashboardLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />

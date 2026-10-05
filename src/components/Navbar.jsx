@@ -77,6 +77,14 @@ export default function Navbar() {
             : 'Multi-Branch',
         path: '/solusi/multi-cabang',
       },
+      {
+        label:
+          language === 'id'
+            ? 'Semua Solusi'
+            : 'All Solutions',
+        path: '/solusi',
+        divider: true,
+      },
     ],
 
     [language === 'id' ? 'Informasi' : 'Information']: [
@@ -137,16 +145,16 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
 
         {/* Logo */}
-<Link
-  to="/"
-  className="flex items-center"
->
-  <img
-    src="/logo/Logo.png"
-    alt="My App"
-    className="h-10 w-auto object-contain"
-  />
-</Link>
+        <Link
+          to="/"
+          className="flex items-center"
+        >
+          <img
+            src="/logo/Logo.png"
+            alt="My App"
+            className="h-10 w-auto object-contain"
+          />
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-1 lg:flex">

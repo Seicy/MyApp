@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef } from 'react' 
+import { useState, useEffect, useRef } from 'react'
+
 import { Link } from 'react-router-dom'
+
 import gsap from 'gsap'
 
 import {
@@ -9,13 +11,6 @@ import {
   CalendarDays, Filter, ArrowDownToLine, ArrowUpFromLine, AlertTriangle,
   LineChart, Download, Lightbulb
 } from "lucide-react";
-
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaYoutube,
-  FaWhatsapp,
-} from 'react-icons/fa'
 
 import Navbar from '../components/Navbar.jsx'
 import Button from '../components/Button.jsx'
@@ -466,13 +461,29 @@ function ModuleTable({ tab }) {
 
 export default function Landing() {
   const [tab, setTab] = useState('Products')
+
+  const [mockupIndex, setMockupIndex] = useState(0)
+  const [isMockupHover, setIsMockupHover] = useState(false)
+
   const statsRef = useRef(null)
 
   useEffect(() => {
+    if (isMockupHover) return
+
+    const interval = setInterval(() => {
+      setMockupIndex((prev) => (prev + 1) % 5)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [isMockupHover])
+
+  useEffect(() => {
     const track = statsRef.current
+
     if (!track) return
 
     const items = gsap.utils.toArray('.stat-item', track)
+
     if (!items.length) return
 
     const itemWidth = items[0].offsetWidth
@@ -496,35 +507,101 @@ export default function Landing() {
     <div>
       <Navbar />
 
-      {/* HERO */}
-      <section className="bg-[#005a9e]">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:py-24">
-          <div>
-            <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl text-white">
-              Berhenti buang waktu mengurus sistem yang rumit. <span>Saatnya kembali fokus kembangkan bisnis anda.</span>
-            </h1>
+{/* HERO */}
+<section className="bg-[#005a9e]">
+  <div className="mx-auto grid max-w-7xl min-w-0 items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1.6fr_0.9fr] lg:gap-10 lg:py-24">
 
-            <p className="mt-5 max-w-lg text-lg text-white">
-              Tidak perlu lagi banyak memiliki aplikasi terpisah,
-              BukaNota menyatukan semuanya dalam satu layar yang mudah dipahami
-              pemilik bisnis.
-            </p>
+    {/* TEKS KIRI */}
+    <div className="min-w-0">
+      <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+        Berhenti buang waktu mengurus sistem yang rumit.{' '}
+        <span>
+          Saatnya kembali fokus kembangkan bisnis anda.
+        </span>
+      </h1>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#fitur">
-                <Button
-                  variant="primary"
-                  className="border-3 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
-                >
-                  Bebaskan waktu anda sekarang
-                </Button>
-              </a>
+      <p className="mt-5 max-w-lg text-lg text-white">
+        Tidak perlu lagi banyak memiliki aplikasi terpisah,
+        BukaNota menyatukan semuanya dalam satu layar yang mudah dipahami
+        pemilik bisnis.
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <a href="#fitur">
+          <Button
+            variant="primary"
+            className="border-3 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+          >
+            Bebaskan waktu anda sekarang
+          </Button>
+        </a>
+      </div>
+    </div>
+
+    {/* CAROUSEL MOCKUP KANAN */}
+    <div
+      className="relative min-w-0 w-full overflow-hidden"
+      onMouseEnter={() => setIsMockupHover(true)}
+      onMouseLeave={() => setIsMockupHover(false)}
+    >
+      <div className="w-full overflow-hidden">
+        <div
+          className="flex w-full transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${mockupIndex * 100}%)`,
+          }}
+        >
+          {[0, 1, 2, 3, 4].map((index) => (
+            <div
+              key={index}
+              className="flex w-full min-w-0 shrink-0 justify-center"
+            >
+              <div className="w-full max-w-[520px]">
+                <DashMockup />
+              </div>
             </div>
-          </div>
-
-          <DashMockup />
+          ))}
         </div>
-      </section>
+      </div>
+
+      <button
+        type="button"
+        onClick={() =>
+          setMockupIndex((prev) => (prev - 1 + 5) % 5)
+        }
+        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-[#0c59a0] shadow-md transition hover:bg-white"
+      >
+        ‹
+      </button>
+
+      <button
+        type="button"
+        onClick={() =>
+          setMockupIndex((prev) => (prev + 1) % 5)
+        }
+        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-[#0c59a0] shadow-md transition hover:bg-white"
+      >
+        ›
+      </button>
+
+      <div className="mt-3 flex justify-center gap-1.5">
+        {[0, 1, 2, 3, 4].map((index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => setMockupIndex(index)}
+            className={`h-1.5 rounded-full transition-all ${
+              mockupIndex === index
+                ? 'w-6 bg-white'
+                : 'w-1.5 bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* FEATURES */}
       <section
@@ -555,11 +632,15 @@ export default function Landing() {
           <h2 className="mx-auto mt-2 text-center text-3xl font-bold text-white">
             Modul ERP
           </h2>
-          <p className="mx-auto mt-2 max-w-2xl text-center text-slate-600 text-white">
+
+          <p className="mx-auto mt-2 max-w-2xl text-center text-white">
             Setiap modul menangani satu area kerja dan semuanya memakai data yang sama.
           </p>
 
-          <div className="mt-8 flex justify-center gap-2 overflow-x-auto pb-2" style={{ maxWidth: '100%' }}>
+          <div
+            className="mt-8 flex justify-center gap-2 overflow-x-auto pb-2"
+            style={{ maxWidth: '100%' }}
+          >
             {Object.entries(modules).map(([key, value]) => {
               const Icon = value.icon
 
@@ -567,10 +648,10 @@ export default function Landing() {
                 <button
                   key={key}
                   onClick={() => setTab(key)}
-                  className={`flex flex-none items-center gap-2 rounded-full px-4 py-2 text-smfont-semibold transition ${
+                  className={`flex flex-none items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition ${
                     tab === key
-                      ? 'bg-[#f8481c] text-white shadow-sm'
-                      : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                      ? 'border-2 border-white bg-[#f8481c] text-white shadow-sm'
+                      : 'border border-slate-200 bg-white text-[#f8481c] hover:bg-slate-50'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -625,7 +706,6 @@ export default function Landing() {
 
               <div className="mt-5 flex gap-3 rounded-xl bg-blue-50 p-4 text-sm text-blue-700">
                 <Lightbulb className="h-5 w-5 flex-none" />
-
                 <p>{m.use}</p>
               </div>
             </div>
@@ -639,7 +719,7 @@ export default function Landing() {
                   <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
 
                   <div className="ml-3 flex-1 rounded-md bg-white px-3 py-1 text-xs text-slate-400">
-                    app.MyApp.com/{m.path}
+                    app.Buka Nota.com/{m.path}
                   </div>
                 </div>
 
@@ -720,33 +800,33 @@ export default function Landing() {
       </section>
 
       {/* BENEFITS */}
-<section className="bg-[#0c59a0]">
-  <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-    <h2 className="text-3xl font-bold text-white">
-      Kenapa Menggunakan ERP?
-    </h2>
+      <section className="bg-[#0c59a0]">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+          <h2 className="text-3xl font-bold text-white">
+            Kenapa Menggunakan ERP?
+          </h2>
 
-    <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {benefits.map(([Icon, title]) => (
-        <div
-          key={title}
-          className="flex items-center gap-3"
-        >
-          <div className="rounded-lg bg-blue-50 p-2.5 text-blue-600">
-            <Icon className="h-5 w-5" />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {benefits.map(([Icon, title]) => (
+              <div
+                key={title}
+                className="flex items-center gap-3"
+              >
+                <div className="rounded-lg bg-blue-50 p-2.5 text-blue-600">
+                  <Icon className="h-5 w-5" />
+                </div>
+
+                <p className="font-medium text-white">
+                  {title}
+                </p>
+              </div>
+            ))}
           </div>
-
-          <p className="font-medium text-white">
-            {title}
-          </p>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* CTA */}
-      <section className="px-4 pb-20 sm:px-6 bg-[#0c59a0]">
+      <section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
         <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
           <h2 className="text-3xl font-bold">
             Siap Mengelola Bisnis dengan Lebih Mudah?
@@ -768,172 +848,172 @@ export default function Landing() {
       </section>
 
       {/* FOOTER */}
-    <footer className="bg-[#021929]">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 text-slate-400 sm:px-6 md:grid-cols-4">
-        
-        {/* Brand */}
-        <div>
-          <img
-            src="/logo/Logo.png"
-            alt="Logo"
-            className="h-10 w-auto"
-          />
+      <footer className="bg-[#021929]">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 text-slate-400 sm:px-6 md:grid-cols-4">
 
-          <p className="mt-3 text-lg font-medium text-white">
-            Stay connect with us
-          </p>
+          {/* Brand */}
+          <div>
+            <img
+              src="/logo/Logo.png"
+              alt="Logo"
+              className="h-10 w-auto"
+            />
 
-          <div className="mt-4 flex items-center gap-3">
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-            >
-              <img
-                src="/logo/instagram.svg"
-                alt="Instagram"
-                className="h-5 w-5"
-              />
-            </a>
+            <p className="mt-3 text-lg font-medium text-white">
+              Stay connect with us
+            </p>
 
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-            >
-              <img
-                src="/logo/facebook.svg"
-                alt="Facebook"
-                className="h-5 w-5"
-              />
-            </a>
+            <div className="mt-4 flex items-center gap-3">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+              >
+                <img
+                  src="/logo/instagram.svg"
+                  alt="Instagram"
+                  className="h-5 w-5"
+                />
+              </a>
 
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-            >
-              <img
-                src="/logo/youtube.svg"
-                alt="YouTube"
-                className="h-5 w-5"
-              />
-            </a>
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+              >
+                <img
+                  src="/logo/facebook.svg"
+                  alt="Facebook"
+                  className="h-5 w-5"
+                />
+              </a>
 
-            <a
-              href="#"
-              aria-label="WhatsApp"
-              className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-            >
-              <img
-                src="/logo/whatsapp.svg"
-                alt="WhatsApp"
-                className="h-5 w-5"
-              />
-            </a>
+              <a
+                href="#"
+                aria-label="YouTube"
+                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+              >
+                <img
+                  src="/logo/youtube.svg"
+                  alt="YouTube"
+                  className="h-5 w-5"
+                />
+              </a>
+
+              <a
+                href="#"
+                aria-label="WhatsApp"
+                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+              >
+                <img
+                  src="/logo/whatsapp.svg"
+                  alt="WhatsApp"
+                  className="h-5 w-5"
+                />
+              </a>
+            </div>
+          </div>
+
+          {/* Product */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+              Product
+            </h3>
+
+            <div className="mt-4 flex flex-col gap-3">
+              <Link
+                to="/produk"
+                className="text-sm transition-colors hover:text-white"
+              >
+                Products
+              </Link>
+
+              <Link
+                to="/inventory"
+                className="text-sm transition-colors hover:text-white"
+              >
+                Inventory
+              </Link>
+
+              <Link
+                to="/purchasing"
+                className="text-sm transition-colors hover:text-white"
+              >
+                Purchasing
+              </Link>
+
+              <Link
+                to="/reports"
+                className="text-sm transition-colors hover:text-white"
+              >
+                Reports
+              </Link>
+            </div>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+              Company
+            </h3>
+
+            <div className="mt-4 flex flex-col gap-3">
+              <Link
+                to="/tentang"
+                className="text-sm transition-colors hover:text-white"
+              >
+                About
+              </Link>
+
+              <Link
+                to="/tentang/kontak"
+                className="text-sm transition-colors hover:text-white"
+              >
+                Contact
+              </Link>
+
+              <Link
+                to="/informasi/faq"
+                className="text-sm transition-colors hover:text-white"
+              >
+                FAQ
+              </Link>
+            </div>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+              Resources
+            </h3>
+
+            <div className="mt-4 flex flex-col gap-3">
+              <Link
+                to="/informasi/dokumentasi"
+                className="text-sm transition-colors hover:text-white"
+              >
+                Documentation
+              </Link>
+
+              <Link
+                to="/informasi/artikel"
+                className="text-sm transition-colors hover:text-white"
+              >
+                Articles
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Product */}
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Product
-          </h3>
-
-          <div className="mt-4 flex flex-col gap-3">
-            <Link
-              to="/produk"
-              className="text-sm transition-colors hover:text-white"
-            >
-              Products
-            </Link>
-
-            <Link
-              to="/inventory"
-              className="text-sm transition-colors hover:text-white"
-            >
-              Inventory
-            </Link>
-
-            <Link
-              to="/purchasing"
-              className="text-sm transition-colors hover:text-white"
-            >
-              Purchasing
-            </Link>
-
-            <Link
-              to="/reports"
-              className="text-sm transition-colors hover:text-white"
-            >
-              Reports
-            </Link>
+        {/* Copyright */}
+        <div className="border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
+            <p className="text-center text-sm text-slate-500">
+              © 2026 ERP System. All rights reserved.
+            </p>
           </div>
         </div>
-
-        {/* Company */}
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Company
-          </h3>
-
-          <div className="mt-4 flex flex-col gap-3">
-            <Link
-              to="/tentang"
-              className="text-sm transition-colors hover:text-white"
-            >
-              About
-            </Link>
-
-            <Link
-              to="/tentang/kontak"
-              className="text-sm transition-colors hover:text-white"
-            >
-              Contact
-            </Link>
-
-            <Link
-              to="/informasi/faq"
-              className="text-sm transition-colors hover:text-white"
-            >
-              FAQ
-            </Link>
-          </div>
-        </div>
-
-        {/* Resources */}
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Resources
-          </h3>
-
-          <div className="mt-4 flex flex-col gap-3">
-            <Link
-              to="/informasi/dokumentasi"
-              className="text-sm transition-colors hover:text-white"
-            >
-              Documentation
-            </Link>
-
-            <Link
-              to="/informasi/artikel"
-              className="text-sm transition-colors hover:text-white"
-            >
-              Articles
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
-          <p className="text-center text-sm text-slate-500">
-            © 2026 ERP System. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+      </footer>
     </div>
   )
 }
