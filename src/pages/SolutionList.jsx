@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+
 import {
   Store,
   UtensilsCrossed,
@@ -6,6 +7,7 @@ import {
   Network,
   ArrowRight,
 } from 'lucide-react'
+
 import Footer from '../components/Footer.jsx'
 import Navbar from '../components/Navbar.jsx'
 
@@ -42,49 +44,54 @@ const solutions = [
 
 export default function SolutionList() {
   return (
-    <div>
+    <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
 
       <main className="bg-white">
-        {/* Hero */}
-        <section className="bg-slate-50">
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-24">
-            {/* Breadcrumb */}
-            <div className="mb-8 flex items-center gap-2 text-sm text-slate-500">
+
+        {/* HERO */}
+        <section className="bg-[#005a9e]">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+
+            {/* BREADCRUMB */}
+            <div className="mb-10 flex items-center gap-2 text-sm text-white/80">
               <Link
                 to="/"
-                className="transition-colors hover:text-[#0c59a0]"
+                className="transition-colors hover:text-white"
               >
                 Beranda
               </Link>
 
               <span>/</span>
 
-              <span className="font-medium text-slate-700">
+              <span className="font-medium text-white">
                 Semua Solusi
               </span>
             </div>
 
+            {/* HERO CONTENT */}
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-wide text-[#0c59a0]">
+              <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
                 Solusi Bisnis
               </p>
 
-              <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
                 Solusi untuk berbagai kebutuhan bisnis
               </h1>
 
-              <p className="mt-6 text-lg leading-8 text-slate-600">
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-white/90">
                 Temukan solusi yang sesuai dengan kebutuhan bisnis Anda untuk
                 membantu mengelola operasional secara lebih terintegrasi.
               </p>
             </div>
+
           </div>
         </section>
 
-        {/* Solutions */}
-        <section className="bg-white">
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+        {/* SOLUTIONS */}
+        <section className="bg-white py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
             <div className="grid gap-6 md:grid-cols-2">
               {solutions.map((solution) => {
                 const Icon = solution.icon
@@ -93,10 +100,11 @@ export default function SolutionList() {
                   <Link
                     key={solution.path}
                     to={solution.path}
-                    className="group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#0c59a0]/30 hover:shadow-lg"
+                    className="group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#0c59a0]/30 hover:shadow-md"
                   >
                     <div className="flex items-start gap-5">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0c59a0]/10 text-[#0c59a0]">
+
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#0c59a0]">
                         <Icon className="h-6 w-6" />
                       </div>
 
@@ -115,36 +123,42 @@ export default function SolutionList() {
                           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                         </div>
                       </div>
+
                     </div>
                   </Link>
                 )
               })}
             </div>
+
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-[#0c59a0]">  
-          <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-white">
+        <section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
+          <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
+
+            <h2 className="text-3xl font-bold">
               Siap mengembangkan bisnis Anda?
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-300">
+            <p className="mt-3 text-blue-100">
               Gunakan sistem yang membantu bisnis Anda bekerja lebih teratur,
               terintegrasi, dan efisien.
             </p>
 
-            <Link
-              to="/harga"
-              className="mt-7 inline-flex items-center gap-2 rounded-lg bg-[#0c59a0] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
-            >
-              Mulai Sekarang
-
-              <ArrowRight className="h-4 w-4" />
+            <Link to="/harga">
+              <button
+                type="button"
+                className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#0c59a0] transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-md"
+              >
+                Mulai Sekarang
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </Link>
+
           </div>
         </section>
+
       </main>
 
       <Footer />

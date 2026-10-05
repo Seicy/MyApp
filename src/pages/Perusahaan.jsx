@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+
 import Navbar from '../components/Navbar.jsx'
+import Button from '../components/Button.jsx'
+import Footer from '../components/Footer.jsx'
 
 const benefits = [
   {
@@ -30,130 +33,171 @@ const modules = [
 
 export default function Perusahaan() {
   return (
-    <>
+    <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
 
-      <main className="bg-white text-slate-900">
-        {/* Hero */}
-        <section className="bg-slate-50">
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
-            <div>
-              <p className="mb-4 text-sm font-semibold text-blue-600">
-                Solusi untuk Perusahaan
-              </p>
+      <main className="bg-white">
 
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-                Kelola bisnis perusahaan dalam{' '}
-                <span className="text-blue-600">
-                  satu sistem terintegrasi.
-                </span>
-              </h1>
+        {/* HERO */}
+        <section className="bg-[#005a9e]">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                Bantu perusahaan mengelola operasional, data, dan proses bisnis
-                dengan sistem ERP yang terpusat.
-              </p>
+            {/* BREADCRUMB */}
+            <div className="mb-10 flex items-center gap-2 text-sm text-white/80">
+              <Link
+                to="/solusi"
+                className="transition-colors hover:text-white"
+              >
+                Solusi
+              </Link>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/login"
-                  className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-                >
-                  Mulai Sekarang
-                </Link>
+              <span>/</span>
 
-                <Link
-                  to="/produk"
-                  className="rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                >
-                  Lihat Produk
-                </Link>
-              </div>
+              <span className="font-medium text-white">
+                Perusahaan
+              </span>
             </div>
 
-            {/* Dashboard Preview */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xl">
-              <div className="mb-5 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">
-                    Enterprise Dashboard
-                  </p>
+            {/* HERO CONTENT */}
+            <div className="grid items-center gap-12 lg:grid-cols-2">
 
-                  <p className="text-xs text-slate-500">
-                    Ringkasan operasional perusahaan
-                  </p>
-                </div>
-
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">
-                  Online
-                </span>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl bg-slate-50 p-4">
-                  <p className="text-xs text-slate-500">Penjualan</p>
-
-                  <p className="mt-2 text-xl font-bold text-slate-900">
-                    Rp248jt
-                  </p>
-                </div>
-
-                <div className="rounded-xl bg-slate-50 p-4">
-                  <p className="text-xs text-slate-500">Pesanan</p>
-
-                  <p className="mt-2 text-xl font-bold text-slate-900">
-                    1.284
-                  </p>
-                </div>
-
-                <div className="rounded-xl bg-slate-50 p-4">
-                  <p className="text-xs text-slate-500">Produk</p>
-
-                  <p className="mt-2 text-xl font-bold text-slate-900">
-                    2.450
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 rounded-xl border border-slate-200 p-4">
-                <p className="text-sm font-semibold text-slate-900">
-                  Ringkasan Aktivitas
+              {/* LEFT */}
+              <div className="min-w-0">
+                <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
+                  Solusi untuk Perusahaan
                 </p>
 
-                <div className="mt-3 space-y-3">
-                  {[
-                    ['Pesanan Baru', '128'],
-                    ['Pembelian', 'Rp86jt'],
-                    ['Stok Masuk', '450 item'],
-                  ].map(([label, value]) => (
-                    <div
-                      key={label}
-                      className="flex items-center justify-between border-b border-slate-100 pb-3 last:border-0 last:pb-0"
-                    >
-                      <span className="text-sm text-slate-600">
-                        {label}
-                      </span>
+                <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+                  Kelola bisnis perusahaan dalam{' '}
+                  <span className="text-white">
+                    satu sistem terintegrasi.
+                  </span>
+                </h1>
 
-                      <span className="text-sm font-semibold text-slate-900">
-                        {value}
-                      </span>
-                    </div>
-                  ))}
+                <p className="mt-5 max-w-xl text-lg leading-8 text-white/90">
+                  Bantu perusahaan mengelola operasional, data, dan proses bisnis
+                  dengan sistem ERP yang terpusat.
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to="/login">
+                    <Button
+                      variant="primary"
+                      className="border-2 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+                    >
+                      Mulai Sekarang
+                    </Button>
+                  </Link>
+
+                  <Link
+                    to="/produk"
+                    className="inline-flex items-center rounded-lg border border-white/60 bg-white px-6 py-3 text-sm font-semibold text-[#0c59a0] transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-md"
+                  >
+                    Lihat Produk
+                  </Link>
                 </div>
               </div>
+
+              {/* DASHBOARD PREVIEW */}
+              <div className="min-w-0">
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xl">
+
+                  <div className="mb-5 flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">
+                        Enterprise Dashboard
+                      </p>
+
+                      <p className="text-xs text-slate-500">
+                        Ringkasan operasional perusahaan
+                      </p>
+                    </div>
+
+                    <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">
+                      Online
+                    </span>
+                  </div>
+
+                  <div className="grid gap-3 sm:grid-cols-3">
+
+                    <div className="rounded-xl bg-slate-50 p-4">
+                      <p className="text-xs text-slate-500">
+                        Penjualan
+                      </p>
+
+                      <p className="mt-2 text-xl font-bold text-slate-900">
+                        Rp248jt
+                      </p>
+                    </div>
+
+                    <div className="rounded-xl bg-slate-50 p-4">
+                      <p className="text-xs text-slate-500">
+                        Pesanan
+                      </p>
+
+                      <p className="mt-2 text-xl font-bold text-slate-900">
+                        1.284
+                      </p>
+                    </div>
+
+                    <div className="rounded-xl bg-slate-50 p-4">
+                      <p className="text-xs text-slate-500">
+                        Produk
+                      </p>
+
+                      <p className="mt-2 text-xl font-bold text-slate-900">
+                        2.450
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <div className="mt-4 rounded-xl border border-slate-200 p-4">
+
+                    <p className="text-sm font-semibold text-slate-900">
+                      Ringkasan Aktivitas
+                    </p>
+
+                    <div className="mt-3 space-y-3">
+                      {[
+                        ['Pesanan Baru', '128'],
+                        ['Pembelian', 'Rp86jt'],
+                        ['Stok Masuk', '450 item'],
+                      ].map(([label, value]) => (
+                        <div
+                          key={label}
+                          className="flex items-center justify-between border-b border-slate-100 pb-3 last:border-0 last:pb-0"
+                        >
+                          <span className="text-sm text-slate-600">
+                            {label}
+                          </span>
+
+                          <span className="text-sm font-semibold text-slate-900">
+                            {value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
 
-        {/* Benefits */}
-        <section className="py-20">
+        {/* BENEFITS */}
+        <section className="bg-white py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold text-blue-600">
+              <p className="text-sm font-semibold uppercase tracking-wide text-[#0c59a0]">
                 Untuk Perusahaan
               </p>
 
-              <h2 className="mt-2 text-3xl font-bold tracking-tight">
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                 Sistem yang membantu mengelola bisnis lebih terstruktur
               </h2>
 
@@ -167,13 +211,13 @@ export default function Perusahaan() {
               {benefits.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-2xl border border-slate-200 p-6 transition hover:-translate-y-1 hover:shadow-lg"
+                  className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-sm font-bold text-blue-600">
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#0c59a0]">
                     ✓
                   </div>
 
-                  <h3 className="mt-5 text-lg font-semibold">
+                  <h3 className="font-semibold text-slate-900">
                     {item.title}
                   </h3>
 
@@ -183,19 +227,22 @@ export default function Perusahaan() {
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* Business Process */}
+        {/* BUSINESS PROCESS */}
         <section className="bg-slate-50 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
             <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+
               <div>
-                <p className="text-sm font-semibold text-blue-600">
+                <p className="text-sm font-semibold uppercase tracking-wide text-[#0c59a0]">
                   Proses Bisnis
                 </p>
 
-                <h2 className="mt-2 text-3xl font-bold tracking-tight">
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                   Hubungkan aktivitas bisnis dalam satu alur
                 </h2>
 
@@ -215,9 +262,9 @@ export default function Perusahaan() {
                 ].map(([number, title]) => (
                   <div
                     key={number}
-                    className="rounded-xl border border-slate-200 bg-white p-5"
+                    className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
-                    <span className="text-sm font-bold text-blue-600">
+                    <span className="text-sm font-bold text-[#0c59a0]">
                       {number}
                     </span>
 
@@ -227,19 +274,22 @@ export default function Perusahaan() {
                   </div>
                 ))}
               </div>
+
             </div>
+
           </div>
         </section>
 
-        {/* Modules */}
-        <section className="py-20">
+        {/* MODULES */}
+        <section className="bg-white py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
             <div className="text-center">
-              <p className="text-sm font-semibold text-blue-600">
+              <p className="text-sm font-semibold uppercase tracking-wide text-[#0c59a0]">
                 Modul ERP
               </p>
 
-              <h2 className="mt-2 text-3xl font-bold">
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
                 Modul untuk mendukung kebutuhan perusahaan
               </h2>
 
@@ -249,56 +299,56 @@ export default function Perusahaan() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {modules.map((module) => (
                 <div
                   key={module}
-                  className="rounded-xl border border-slate-200 bg-white p-5"
+                  className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                 >
                   <h3 className="font-semibold text-slate-900">
                     {module}
                   </h3>
 
-                  <p className="mt-2 text-sm text-slate-500">
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     Kelola data dan aktivitas {module.toLowerCase()} dalam
                     satu sistem.
                   </p>
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-blue-600">
-          <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-white">
+        <section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
+          <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
+
+            <h2 className="text-3xl font-bold">
               Bangun operasional perusahaan yang lebih terintegrasi
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-blue-100">
+            <p className="mt-3 text-blue-100">
               Gunakan sistem ERP untuk membantu perusahaan mengelola berbagai
               aktivitas bisnis dalam satu platform.
             </p>
 
-            <Link
-              to="/login"
-              className="mt-8 inline-block rounded-lg bg-white px-5 py-3 text-sm font-semibold text-blue-600 transition hover:bg-blue-50"
-            >
-              Mulai Sekarang
+            <Link to="/login">
+              <Button
+                variant="secondary"
+                className="mt-6 px-6 py-3"
+              >
+                Mulai Sekarang
+              </Button>
             </Link>
+
           </div>
         </section>
+
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 text-center sm:px-6">
-          <p className="text-sm text-slate-500">
-            © 2026 ERP System. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </>
+      {/* FOOTER */}
+      <Footer />
+    </div>
   )
 }

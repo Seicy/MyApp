@@ -4,6 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#021929]">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 text-slate-400 sm:px-6 md:grid-cols-4">
+
         {/* Brand */}
         <div>
           <img
@@ -158,12 +159,45 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
+      {/* Bottom Footer */}
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
-          <p className="text-center text-sm text-slate-500">
-            © 2026 ERP System. All rights reserved.
-          </p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 text-sm sm:px-6 md:flex-row md:items-center md:justify-between">
+
+          {/* Kiri */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white">
+            <a
+              href="#"
+              className="transition-colors hover:text-white"
+            >
+              Kebijakan Privasi
+            </a>
+
+            <a
+              href="/syarat-ketentuan"
+              className="transition-colors hover:text-white"
+            >
+              Syarat dan Ketentuan
+            </a>
+
+            <a
+              href="#"
+              className="transition-colors hover:text-white"
+            >
+              Pengaturan Cookie
+            </a>
+          </div>
+
+          {/* Kanan */}
+          <div className="text-left text-slate-500 md:text-right">
+            <p>
+              © 2024 Buka Nota. All Rights Reserved.
+            </p>
+
+            <p className="mt-1">
+              BukaNota is a product of PT Meta Digital Informasi.
+            </p>
+          </div>
+
         </div>
       </div>
     </footer>

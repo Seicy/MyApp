@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 
 import { Link } from 'react-router-dom'
 
+import Footer from '../components/Footer.jsx'
+
 import gsap from 'gsap'
 
 import {
@@ -271,8 +273,8 @@ const steps = [
 function ModuleTable({ tab }) {
   if (tab === 'Products') {
     return (
-      <div className="overflow-hidden rounded-lg border border-slate-200">
-        <div className="grid grid-cols-4 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500">
+      <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+        <div className="grid grid-cols-4 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
           <span>Product</span>
           <span>SKU</span>
           <span>Price</span>
@@ -287,7 +289,7 @@ function ModuleTable({ tab }) {
         ].map((row) => (
           <div
             key={row[1]}
-            className="grid grid-cols-4 border-t border-slate-100 px-3 py-3 text-xs"
+            className="grid grid-cols-4 border-t border-slate-100 px-3 py-3 text-xs text-slate-700 dark:border-slate-700 dark:text-slate-300"
           >
             {row.map((item) => (
               <span key={item}>{item}</span>
@@ -300,8 +302,8 @@ function ModuleTable({ tab }) {
 
   if (tab === 'Customers') {
     return (
-      <div className="overflow-hidden rounded-lg border border-slate-200">
-        <div className="grid grid-cols-3 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500">
+      <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+        <div className="grid grid-cols-3 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
           <span>Name</span>
           <span>Email</span>
           <span>City</span>
@@ -315,7 +317,7 @@ function ModuleTable({ tab }) {
         ].map((row) => (
           <div
             key={row[1]}
-            className="grid grid-cols-3 border-t border-slate-100 px-3 py-3 text-xs"
+            className="grid grid-cols-3 border-t border-slate-100 px-3 py-3 text-xs text-slate-700 dark:border-slate-700 dark:text-slate-300"
           >
             {row.map((item) => (
               <span key={item}>{item}</span>
@@ -328,8 +330,8 @@ function ModuleTable({ tab }) {
 
   if (tab === 'Suppliers') {
     return (
-      <div className="overflow-hidden rounded-lg border border-slate-200">
-        <div className="grid grid-cols-3 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500">
+      <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+        <div className="grid grid-cols-3 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
           <span>Supplier</span>
           <span>City</span>
           <span>Contact</span>
@@ -343,7 +345,7 @@ function ModuleTable({ tab }) {
         ].map((row) => (
           <div
             key={row[0]}
-            className="grid grid-cols-3 border-t border-slate-100 px-3 py-3 text-xs"
+            className="grid grid-cols-3 border-t border-slate-100 px-3 py-3 text-xs text-slate-700 dark:border-slate-700 dark:text-slate-300"
           >
             {row.map((item) => (
               <span key={item}>{item}</span>
@@ -356,8 +358,8 @@ function ModuleTable({ tab }) {
 
   if (tab === 'Purchasing') {
     return (
-      <div className="overflow-hidden rounded-lg border border-slate-200">
-        <div className="grid grid-cols-4 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500">
+      <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+        <div className="grid grid-cols-4 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
           <span>PO</span>
           <span>Supplier</span>
           <span>Total</span>
@@ -372,7 +374,7 @@ function ModuleTable({ tab }) {
         ].map((row) => (
           <div
             key={row[0]}
-            className="grid grid-cols-4 border-t border-slate-100 px-3 py-3 text-xs"
+            className="grid grid-cols-4 border-t border-slate-100 px-3 py-3 text-xs text-slate-700 dark:border-slate-700 dark:text-slate-300"
           >
             <span>{row[0]}</span>
             <span>{row[1]}</span>
@@ -381,8 +383,8 @@ function ModuleTable({ tab }) {
               <span
                 className={
                   row[3] === 'Approved'
-                    ? 'rounded-full bg-emerald-50 px-2 py-1 text-emerald-600'
-                    : 'rounded-full bg-amber-50 px-2 py-1 text-amber-600'
+                    ? 'rounded-full bg-emerald-50 px-2 py-1 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400'
+                    : 'rounded-full bg-amber-50 px-2 py-1 text-amber-600 dark:bg-amber-950/40 dark:text-amber-400'
                 }
               >
                 {row[3]}
@@ -396,8 +398,8 @@ function ModuleTable({ tab }) {
 
   if (tab === 'Inventory') {
     return (
-      <div className="overflow-hidden rounded-lg border border-slate-200">
-        <div className="grid grid-cols-4 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500">
+      <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+        <div className="grid grid-cols-4 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
           <span>Product</span>
           <span>In</span>
           <span>Out</span>
@@ -412,7 +414,7 @@ function ModuleTable({ tab }) {
         ].map((row) => (
           <div
             key={row[0]}
-            className="grid grid-cols-4 border-t border-slate-100 px-3 py-3 text-xs"
+            className="grid grid-cols-4 border-t border-slate-100 px-3 py-3 text-xs text-slate-700 dark:border-slate-700 dark:text-slate-300"
           >
             {row.map((item) => (
               <span key={item}>{item}</span>
@@ -433,20 +435,20 @@ function ModuleTable({ tab }) {
         ].map(([label, value]) => (
           <div
             key={label}
-            className="rounded-lg border border-slate-200 p-3"
+            className="rounded-lg border border-slate-200 p-3 dark:border-slate-700 dark:bg-slate-800"
           >
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               {label}
             </p>
 
-            <p className="mt-1 font-bold text-slate-800">
+            <p className="mt-1 font-bold text-slate-800 dark:text-white">
               {value}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="flex h-40 items-end gap-3 rounded-lg border border-slate-200 p-4">
+      <div className="flex h-40 items-end gap-3 rounded-lg border border-slate-200 p-4 dark:border-slate-700">
         {[45, 65, 40, 80, 60, 90, 70].map((height, i) => (
           <div
             key={i}
@@ -461,7 +463,6 @@ function ModuleTable({ tab }) {
 
 export default function Landing() {
   const [tab, setTab] = useState('Products')
-
   const [mockupIndex, setMockupIndex] = useState(0)
   const [isMockupHover, setIsMockupHover] = useState(false)
 
@@ -504,112 +505,111 @@ export default function Landing() {
   const m = modules[tab]
 
   return (
-    <div>
+    <div className="bg-white text-slate-900 transition-colors duration-200 dark:bg-slate-950 dark:text-white">
       <Navbar />
 
-{/* HERO */}
-<section className="bg-[#005a9e]">
-  <div className="mx-auto grid max-w-7xl min-w-0 items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1.6fr_0.9fr] lg:gap-10 lg:py-24">
+      {/* HERO */}
+      <section className="bg-[#005a9e]">
+        <div className="mx-auto grid max-w-7xl min-w-0 items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1.6fr_0.9fr] lg:gap-10 lg:py-24">
 
-    {/* TEKS KIRI */}
-    <div className="min-w-0">
-      <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
-        Berhenti buang waktu mengurus sistem yang rumit.{' '}
-        <span>
-          Saatnya kembali fokus kembangkan bisnis anda.
-        </span>
-      </h1>
+          {/* TEKS KIRI */}
+          <div className="min-w-0">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
+              Berhenti buang waktu mengurus sistem yang rumit.{' '}
+              <span>
+                Saatnya kembali fokus kembangkan bisnis anda.
+              </span>
+            </h1>
 
-      <p className="mt-5 max-w-lg text-lg text-white">
-        Tidak perlu lagi banyak memiliki aplikasi terpisah,
-        BukaNota menyatukan semuanya dalam satu layar yang mudah dipahami
-        pemilik bisnis.
-      </p>
+            <p className="mt-5 max-w-lg text-lg text-white">
+              Tidak perlu lagi banyak memiliki aplikasi terpisah,
+              BukaNota menyatukan semuanya dalam satu layar yang mudah dipahami
+              pemilik bisnis.
+            </p>
 
-      <div className="mt-8 flex flex-wrap gap-3">
-        <a href="#fitur">
-          <Button
-            variant="primary"
-            className="border-3 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#fitur">
+                <Button
+                  variant="primary"
+                  className="border-3 border-white bg-[#f8481c] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+                >
+                  Bebaskan waktu anda sekarang
+                </Button>
+              </a>
+            </div>
+          </div>
+
+          {/* CAROUSEL MOCKUP KANAN */}
+          <div
+            className="relative min-w-0 w-full overflow-hidden"
+            onMouseEnter={() => setIsMockupHover(true)}
+            onMouseLeave={() => setIsMockupHover(false)}
           >
-            Bebaskan waktu anda sekarang
-          </Button>
-        </a>
-      </div>
-    </div>
-
-    {/* CAROUSEL MOCKUP KANAN */}
-    <div
-      className="relative min-w-0 w-full overflow-hidden"
-      onMouseEnter={() => setIsMockupHover(true)}
-      onMouseLeave={() => setIsMockupHover(false)}
-    >
-      <div className="w-full overflow-hidden">
-        <div
-          className="flex w-full transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${mockupIndex * 100}%)`,
-          }}
-        >
-          {[0, 1, 2, 3, 4].map((index) => (
-            <div
-              key={index}
-              className="flex w-full min-w-0 shrink-0 justify-center"
-            >
-              <div className="w-full max-w-[520px]">
-                <DashMockup />
+            <div className="w-full overflow-hidden">
+              <div
+                className="flex w-full transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(-${mockupIndex * 100}%)`,
+                }}
+              >
+                {[0, 1, 2, 3, 4].map((index) => (
+                  <div
+                    key={index}
+                    className="flex w-full min-w-0 shrink-0 justify-center"
+                  >
+                    <div className="w-full max-w-[520px]">
+                      <DashMockup />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+
+            <button
+              type="button"
+              onClick={() =>
+                setMockupIndex((prev) => (prev - 1 + 5) % 5)
+              }
+              className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-[#0c59a0] shadow-md transition hover:bg-white"
+            >
+              ‹
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                setMockupIndex((prev) => (prev + 1) % 5)
+              }
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-[#0c59a0] shadow-md transition hover:bg-white"
+            >
+              ›
+            </button>
+
+            <div className="mt-3 flex justify-center gap-1.5">
+              {[0, 1, 2, 3, 4].map((index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setMockupIndex(index)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    mockupIndex === index
+                      ? 'w-6 bg-white'
+                      : 'w-1.5 bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <button
-        type="button"
-        onClick={() =>
-          setMockupIndex((prev) => (prev - 1 + 5) % 5)
-        }
-        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-[#0c59a0] shadow-md transition hover:bg-white"
-      >
-        ‹
-      </button>
-
-      <button
-        type="button"
-        onClick={() =>
-          setMockupIndex((prev) => (prev + 1) % 5)
-        }
-        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 px-3 py-2 text-[#0c59a0] shadow-md transition hover:bg-white"
-      >
-        ›
-      </button>
-
-      <div className="mt-3 flex justify-center gap-1.5">
-        {[0, 1, 2, 3, 4].map((index) => (
-          <button
-            key={index}
-            type="button"
-            onClick={() => setMockupIndex(index)}
-            className={`h-1.5 rounded-full transition-all ${
-              mockupIndex === index
-                ? 'w-6 bg-white'
-                : 'w-1.5 bg-white/50'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* FEATURES */}
       <section
         id="fitur"
-        className="bg-slate-50 py-20"
+        className="bg-slate-50 py-20 transition-colors duration-200 dark:bg-slate-950"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="mx-auto max-w-xl text-center text-3xl font-bold">
+          <h2 className="mx-auto max-w-xl text-center text-3xl font-bold text-slate-900 dark:text-white">
             Semua Kebutuhan Bisnis dalam Satu Platform
           </h2>
 
@@ -661,7 +661,8 @@ export default function Landing() {
             })}
           </div>
 
-          <div className="mt-6 grid gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-8 lg:grid-cols-12">
+          <div className="mt-6 grid gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-colors duration-200 sm:p-8 lg:grid-cols-12 dark:border-slate-700 dark:bg-slate-900">
+
             {/* LEFT */}
             <div className="lg:col-span-5">
               <div className="flex items-center gap-3">
@@ -672,12 +673,12 @@ export default function Landing() {
                   })()}
                 </div>
 
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                   {tab}
                 </h3>
               </div>
 
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-400">
                 {m.desc}
               </p>
 
@@ -685,18 +686,18 @@ export default function Landing() {
                 {m.features.map(([Icon, title, description]) => (
                   <div
                     key={title}
-                    className="flex gap-3 rounded-xl border border-slate-200 bg-white p-3.5 transition hover:border-blue-100 hover:shadow-sm"
+                    className="flex gap-3 rounded-xl border border-slate-200 bg-white p-3.5 transition hover:border-blue-100 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800"
                   >
-                    <div className="h-fit rounded-lg bg-blue-50 p-2 text-blue-600">
+                    <div className="h-fit rounded-lg bg-blue-50 p-2 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">
                       <Icon className="h-4 w-4" />
                     </div>
 
                     <div>
-                      <p className="text-sm font-semibold">
+                      <p className="text-sm font-semibold text-slate-900 dark:text-white">
                         {title}
                       </p>
 
-                      <p className="mt-0.5 text-sm text-slate-600">
+                      <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">
                         {description}
                       </p>
                     </div>
@@ -704,7 +705,7 @@ export default function Landing() {
                 ))}
               </div>
 
-              <div className="mt-5 flex gap-3 rounded-xl bg-blue-50 p-4 text-sm text-blue-700">
+              <div className="mt-5 flex gap-3 rounded-xl bg-blue-50 p-4 text-sm text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">
                 <Lightbulb className="h-5 w-5 flex-none" />
                 <p>{m.use}</p>
               </div>
@@ -712,13 +713,14 @@ export default function Landing() {
 
             {/* RIGHT MOCKUP */}
             <div className="lg:col-span-7">
-              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
-                <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-100 px-4 py-2.5">
+              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
+
+                <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-100 px-4 py-2.5 dark:border-slate-700 dark:bg-slate-800">
                   <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
                   <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                   <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
 
-                  <div className="ml-3 flex-1 rounded-md bg-white px-3 py-1 text-xs text-slate-400">
+                  <div className="ml-3 flex-1 rounded-md bg-white px-3 py-1 text-xs text-slate-400 dark:bg-slate-700 dark:text-slate-400">
                     app.Buka Nota.com/{m.path}
                   </div>
                 </div>
@@ -733,13 +735,13 @@ export default function Landing() {
       </section>
 
       {/* CARA KERJA */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-slate-50 py-20 transition-colors duration-200 dark:bg-slate-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
             Cara Kerja
           </h2>
 
-          <p className="mt-2 max-w-xl text-slate-600">
+          <p className="mt-2 max-w-xl text-slate-600 dark:text-slate-400">
             Tiga langkah sederhana dari masuk ke sistem hingga bisnis terpantau.
           </p>
 
@@ -750,23 +752,23 @@ export default function Landing() {
               return (
                 <div
                   key={step.title}
-                  className="rounded-xl bg-white p-6 shadow-sm"
+                  className="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">
                       <Icon className="h-5 w-5" />
                     </div>
 
-                    <span className="text-3xl font-extrabold text-slate-200">
+                    <span className="text-3xl font-extrabold text-slate-200 dark:text-slate-700">
                       0{index + 1}
                     </span>
                   </div>
 
-                  <h3 className="mt-5 text-xl font-semibold">
+                  <h3 className="mt-5 text-xl font-semibold text-slate-900 dark:text-white">
                     {step.title}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     {step.text}
                   </p>
 
@@ -774,7 +776,7 @@ export default function Landing() {
                     {step.points.map((point) => (
                       <li
                         key={point}
-                        className="flex items-start gap-2 text-sm text-slate-700"
+                        className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300"
                       >
                         <Check className="mt-0.5 h-4 w-4 flex-none text-blue-600" />
                         {point}
@@ -789,9 +791,9 @@ export default function Landing() {
       </section>
 
       {/* DASHBOARD */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 transition-colors duration-200 dark:bg-slate-950">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="mb-8 text-3xl font-bold">
+          <h2 className="mb-8 text-3xl font-bold text-slate-900 dark:text-white">
             Dashboard yang Siap Dipakai Tim Anda
           </h2>
 
@@ -848,172 +850,7 @@ export default function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#021929]">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 text-slate-400 sm:px-6 md:grid-cols-4">
-
-          {/* Brand */}
-          <div>
-            <img
-              src="/logo/Logo.png"
-              alt="Logo"
-              className="h-10 w-auto"
-            />
-
-            <p className="mt-3 text-lg font-medium text-white">
-              Stay connect with us
-            </p>
-
-            <div className="mt-4 flex items-center gap-3">
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-              >
-                <img
-                  src="/logo/instagram.svg"
-                  alt="Instagram"
-                  className="h-5 w-5"
-                />
-              </a>
-
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-              >
-                <img
-                  src="/logo/facebook.svg"
-                  alt="Facebook"
-                  className="h-5 w-5"
-                />
-              </a>
-
-              <a
-                href="#"
-                aria-label="YouTube"
-                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-              >
-                <img
-                  src="/logo/youtube.svg"
-                  alt="YouTube"
-                  className="h-5 w-5"
-                />
-              </a>
-
-              <a
-                href="#"
-                aria-label="WhatsApp"
-                className="transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
-              >
-                <img
-                  src="/logo/whatsapp.svg"
-                  alt="WhatsApp"
-                  className="h-5 w-5"
-                />
-              </a>
-            </div>
-          </div>
-
-          {/* Product */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-              Product
-            </h3>
-
-            <div className="mt-4 flex flex-col gap-3">
-              <Link
-                to="/produk"
-                className="text-sm transition-colors hover:text-white"
-              >
-                Products
-              </Link>
-
-              <Link
-                to="/inventory"
-                className="text-sm transition-colors hover:text-white"
-              >
-                Inventory
-              </Link>
-
-              <Link
-                to="/purchasing"
-                className="text-sm transition-colors hover:text-white"
-              >
-                Purchasing
-              </Link>
-
-              <Link
-                to="/reports"
-                className="text-sm transition-colors hover:text-white"
-              >
-                Reports
-              </Link>
-            </div>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-              Company
-            </h3>
-
-            <div className="mt-4 flex flex-col gap-3">
-              <Link
-                to="/tentang"
-                className="text-sm transition-colors hover:text-white"
-              >
-                About
-              </Link>
-
-              <Link
-                to="/tentang/kontak"
-                className="text-sm transition-colors hover:text-white"
-              >
-                Contact
-              </Link>
-
-              <Link
-                to="/informasi/faq"
-                className="text-sm transition-colors hover:text-white"
-              >
-                FAQ
-              </Link>
-            </div>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-              Resources
-            </h3>
-
-            <div className="mt-4 flex flex-col gap-3">
-              <Link
-                to="/informasi/dokumentasi"
-                className="text-sm transition-colors hover:text-white"
-              >
-                Documentation
-              </Link>
-
-              <Link
-                to="/informasi/artikel"
-                className="text-sm transition-colors hover:text-white"
-              >
-                Articles
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
-            <p className="text-center text-sm text-slate-500">
-              © 2026 ERP System. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

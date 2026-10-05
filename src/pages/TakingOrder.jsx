@@ -1,35 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-import Navbar from "../components/Navbar";
-import Button from "../components/Button";
+import Navbar from '../components/Navbar.jsx'
+import Button from '../components/Button.jsx'
+import Footer from '../components/Footer.jsx'
 
 const product = {
-  name: "Taking Order",
+  name: 'Taking Order',
 
   headline: [
-    "Pesanan lebih ",
-    "cepat dan terorganisir",
-    ".",
+    'Pesanan lebih ',
+    'cepat dan terorganisir',
+    '.',
   ],
 
   lead:
-    "Bantu karyawan mencatat pesanan dengan lebih cepat dan akurat, langsung dari satu sistem.",
+    'Bantu karyawan mencatat pesanan dengan lebih cepat dan akurat, langsung dari satu sistem.',
 
   benefits: [
     [
-      "Input pesanan lebih cepat",
-      "Catat pesanan pelanggan dengan tampilan yang sederhana dan mudah digunakan.",
+      'Input pesanan lebih cepat',
+      'Catat pesanan pelanggan dengan tampilan yang sederhana dan mudah digunakan.',
     ],
     [
-      "Pesanan lebih terorganisir",
-      "Setiap pesanan tercatat dalam sistem sehingga mudah dipantau dan diproses.",
+      'Pesanan lebih terorganisir',
+      'Setiap pesanan tercatat dalam sistem sehingga mudah dipantau dan diproses.',
     ],
     [
-      "Kurangi kesalahan pesanan",
-      "Informasi pesanan tersimpan dengan jelas untuk membantu mengurangi kesalahan input.",
+      'Kurangi kesalahan pesanan',
+      'Informasi pesanan tersimpan dengan jelas untuk membantu mengurangi kesalahan input.',
     ],
   ],
-};
+}
 
 export default function TakingOrder() {
   return (
@@ -37,21 +38,21 @@ export default function TakingOrder() {
       <Navbar />
 
       {/* HERO */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
+      <section className="bg-[#005a9e]">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
 
           {/* BREADCRUMB */}
-          <div className="mb-4 flex items-center gap-2 text-sm text-slate-500">
+          <div className="mb-10 flex items-center gap-2 text-sm text-white/80">
             <Link
               to="/produk"
-              className="transition hover:text-blue-600"
+              className="transition-colors hover:text-white"
             >
               Produk
             </Link>
 
             <span>/</span>
 
-            <span className="font-medium text-slate-900">
+            <span className="font-medium text-white">
               Taking Order
             </span>
           </div>
@@ -60,86 +61,97 @@ export default function TakingOrder() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
 
             {/* LEFT */}
-            <div>
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+            <div className="min-w-0">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
                 {product.headline[0]}
 
-                <span className="text-blue-600">
+                <span className="text-white">
                   {product.headline[1]}
                 </span>
 
                 {product.headline[2]}
               </h1>
 
-              <p className="mt-5 max-w-lg text-lg text-slate-600">
+              <p className="mt-5 max-w-lg text-lg leading-8 text-white/90">
                 {product.lead}
               </p>
 
-              <a
-                href="#platform"
-                className="mt-8 inline-flex items-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-              >
-                Pelajari Taking Order
-              </a>
+              <div className="mt-8">
+                <a href="#platform">
+                  <Button
+                    variant="primary"
+                    className="border-2 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+                  >
+                    Pelajari Taking Order
+                  </Button>
+                </a>
+              </div>
             </div>
 
             {/* RIGHT - MOCKUP */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
+            <div className="min-w-0">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
 
-              <h3 className="mb-5 text-sm font-semibold text-slate-600">
-                Taking Order · Pesanan Baru
-              </h3>
+                <h3 className="mb-5 text-sm font-semibold text-slate-600">
+                  Taking Order · Pesanan Baru
+                </h3>
 
-              <div className="space-y-4">
+                <div className="space-y-4">
 
-                <div className="rounded-lg border border-slate-200 p-4">
-                  <p className="text-xs text-slate-500">
-                    Meja
-                  </p>
+                  <div className="rounded-lg border border-slate-200 p-4">
+                    <p className="text-xs text-slate-500">
+                      Meja
+                    </p>
 
-                  <p className="mt-1 font-semibold text-slate-900">
-                    Meja 08
-                  </p>
-                </div>
-
-                <div>
-                  <p className="mb-2 text-sm font-medium text-slate-700">
-                    Pesanan
-                  </p>
-
-                  <div className="space-y-2">
-
-                    <div className="flex justify-between rounded-lg bg-slate-50 p-3 text-sm">
-                      <span>Kopi Susu × 2</span>
-                      <span className="font-medium">
-                        Rp44.000
-                      </span>
-                    </div>
-
-                    <div className="flex justify-between rounded-lg bg-slate-50 p-3 text-sm">
-                      <span>Roti Bakar × 1</span>
-                      <span className="font-medium">
-                        Rp20.000
-                      </span>
-                    </div>
-
+                    <p className="mt-1 font-semibold text-slate-900">
+                      Meja 08
+                    </p>
                   </div>
+
+                  <div>
+                    <p className="mb-2 text-sm font-medium text-slate-700">
+                      Pesanan
+                    </p>
+
+                    <div className="space-y-2">
+
+                      <div className="flex justify-between rounded-lg bg-slate-50 p-3 text-sm">
+                        <span>Kopi Susu × 2</span>
+
+                        <span className="font-medium">
+                          Rp44.000
+                        </span>
+                      </div>
+
+                      <div className="flex justify-between rounded-lg bg-slate-50 p-3 text-sm">
+                        <span>Roti Bakar × 1</span>
+
+                        <span className="font-medium">
+                          Rp20.000
+                        </span>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between border-t border-slate-200 pt-4">
+                    <span className="font-semibold">
+                      Total
+                    </span>
+
+                    <span className="font-bold text-[#0c59a0]">
+                      Rp64.000
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="w-full rounded-lg bg-[#0c59a0] py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0c59a0]/90"
+                  >
+                    Simpan Pesanan
+                  </button>
+
                 </div>
-
-                <div className="flex items-center justify-between border-t border-slate-200 pt-4">
-                  <span className="font-semibold">
-                    Total
-                  </span>
-
-                  <span className="font-bold text-blue-600">
-                    Rp64.000
-                  </span>
-                </div>
-
-                <button className="w-full rounded-lg bg-blue-600 py-3 text-sm font-semibold text-white">
-                  Simpan Pesanan
-                </button>
-
               </div>
             </div>
 
@@ -152,23 +164,18 @@ export default function TakingOrder() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
-              Taking Order
-            </p>
-
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Sistem pencatatan pesanan yang sederhana dan terorganisir.
             </h2>
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
             {product.benefits.map(([title, description]) => (
               <div
                 key={title}
-                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
               >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#0c59a0]">
                   ✓
                 </div>
 
@@ -181,13 +188,16 @@ export default function TakingOrder() {
                 </p>
               </div>
             ))}
-
           </div>
+
         </div>
       </section>
 
       {/* PLATFORM */}
-      <section id="platform" className="bg-slate-50 py-20">
+      <section
+        id="platform"
+        className="bg-slate-50 py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
           <div className="max-w-3xl">
@@ -203,8 +213,8 @@ export default function TakingOrder() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 className="font-semibold">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+              <h3 className="font-semibold text-slate-900">
                 Point Of Sale
               </h3>
 
@@ -213,8 +223,8 @@ export default function TakingOrder() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 className="font-semibold">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+              <h3 className="font-semibold text-slate-900">
                 Payment
               </h3>
 
@@ -223,8 +233,8 @@ export default function TakingOrder() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 className="font-semibold">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+              <h3 className="font-semibold text-slate-900">
                 Manajemen Stok
               </h3>
 
@@ -238,8 +248,8 @@ export default function TakingOrder() {
       </section>
 
       {/* CTA */}
-      <section className="px-4 pb-20 sm:px-6">
-        <div className="mx-auto max-w-5xl rounded-2xl bg-blue-600 px-6 py-14 text-center text-white">
+      <section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
+        <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
 
           <h2 className="text-3xl font-bold">
             Siap Mengelola Pesanan dengan Lebih Mudah?
@@ -262,68 +272,7 @@ export default function TakingOrder() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
-
-          <div>
-            <p className="font-extrabold">
-              ERP SYSTEM
-            </p>
-
-            <p className="mt-3 text-sm text-slate-500">
-              Sistem ERP sederhana untuk membantu pengelolaan bisnis.
-            </p>
-          </div>
-
-          {[
-            [
-              "Product",
-              [
-                { label: "Products", path: "/produk" },
-                { label: "Inventory", path: "/inventory" },
-                { label: "Purchasing", path: "/purchase-orders" },
-                { label: "Reports", path: "/reports" },
-              ],
-            ],
-            [
-              "Company",
-              [
-                { label: "About", path: "/tentang" },
-                { label: "Contact", path: "/tentang/kontak" },
-                { label: "FAQ", path: "/informasi/faq" },
-              ],
-            ],
-            [
-              "Resources",
-              [
-                { label: "Documentation", path: "/informasi/dokumentasi" },
-                { label: "Articles", path: "/informasi/artikel" },
-              ],
-            ],
-          ].map(([heading, links]) => (
-            <div key={heading}>
-              <p className="mb-3 font-semibold">
-                {heading}
-              </p>
-
-              {links.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="block py-1 text-sm text-slate-600 transition hover:text-blue-600"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          ))}
-
-        </div>
-
-        <p className="border-t border-slate-100 py-5 text-center text-sm text-slate-500">
-          © 2026 ERP System. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
-  );
+  )
 }

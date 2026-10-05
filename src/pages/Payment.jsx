@@ -1,102 +1,153 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-import Navbar from "../components/Navbar";
-import Button from "../components/Button";
+import Navbar from '../components/Navbar.jsx'
+import Button from '../components/Button.jsx'
+import Footer from '../components/Footer.jsx'
 
 const product = {
-  name: "Payment",
+  name: 'Payment',
 
   headline: [
-    "Pembayaran lebih ",
-    "mudah dan terintegrasi",
-    ".",
+    'Pembayaran lebih ',
+    'mudah dan terintegrasi',
+    '.',
   ],
 
   lead:
-    "Kelola berbagai metode pembayaran dalam satu sistem agar proses transaksi lebih cepat dan mudah dipantau.",
+    'Kelola berbagai metode pembayaran dalam satu sistem agar proses transaksi lebih cepat dan mudah dipantau.',
 
   benefits: [
     [
-      "Berbagai metode pembayaran",
-      "Dukung proses pembayaran dengan berbagai metode sesuai kebutuhan bisnis.",
+      'Berbagai metode pembayaran',
+      'Dukung proses pembayaran dengan berbagai metode sesuai kebutuhan bisnis.',
     ],
     [
-      "Transaksi lebih cepat",
-      "Proses pembayaran terintegrasi langsung dengan sistem kasir.",
+      'Transaksi lebih cepat',
+      'Proses pembayaran terintegrasi langsung dengan sistem kasir.',
     ],
     [
-      "Data pembayaran tercatat",
-      "Setiap transaksi tersimpan sehingga lebih mudah dipantau dan dikelola.",
+      'Data pembayaran tercatat',
+      'Setiap transaksi tersimpan sehingga lebih mudah dipantau dan dikelola.',
     ],
   ],
-};
+}
 
 export default function Payment() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
 
-{/* HERO */}
-<section className="bg-slate-50">
-  <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
+      {/* HERO */}
+      <section className="bg-[#005a9e]">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
 
-    {/* BREADCRUMB */}
-    <div className="mb-4 flex items-center gap-2 text-sm text-slate-500">
-      <Link
-        to="/produk"
-        className="transition hover:text-blue-600"
-      >
-        Produk
-      </Link>
+          {/* BREADCRUMB */}
+          <div className="mb-10 flex items-center gap-2 text-sm text-white/80">
+            <Link
+              to="/produk"
+              className="transition-colors hover:text-white"
+            >
+              Produk
+            </Link>
 
-      <span>/</span>
+            <span>/</span>
 
-      <span className="font-medium text-slate-900">
-        Payment
-      </span>
-    </div>
+            <span className="font-medium text-white">
+              Payment
+            </span>
+          </div>
 
-    {/* HERO CONTENT */}
-    <div className="grid items-center gap-12 lg:grid-cols-2">
+          {/* HERO CONTENT */}
+          <div className="grid items-center gap-12 lg:grid-cols-2">
 
-      {/* LEFT */}
-      <div>
-        <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-          {product.headline[0]}
-          <span className="text-blue-600">
-            {product.headline[1]}
-          </span>
-          {product.headline[2]}
-        </h1>
+            {/* LEFT */}
+            <div className="min-w-0">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+                {product.headline[0]}
 
-        <p className="mt-5 max-w-lg text-lg text-slate-600">
-          {product.lead}
-        </p>
+                <span className="text-white">
+                  {product.headline[1]}
+                </span>
 
-        <a
-          href="#platform"
-          className="mt-8 inline-flex items-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-        >
-          Pelajari Payment
-        </a>
-      </div>
+                {product.headline[2]}
+              </h1>
 
-      {/* RIGHT */}
-      {/* mockup kamu tetap di sini */}
+              <p className="mt-5 max-w-lg text-lg leading-8 text-white/90">
+                {product.lead}
+              </p>
 
-    </div>
-  </div>
-</section>
+              <div className="mt-8">
+                <a href="#platform">
+                  <Button
+                    variant="primary"
+                    className="border-2 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+                  >
+                    Pelajari Payment
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT - MOCKUP */}
+            <div className="min-w-0">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
+
+                <h3 className="mb-5 text-sm font-semibold text-slate-600">
+                  Payment · Pembayaran
+                </h3>
+
+                <div>
+                  <div className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm">
+                    <span className="text-slate-600">
+                      Total Transaksi
+                    </span>
+
+                    <span className="font-medium text-slate-900">
+                      Rp57.600
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm">
+                    <span className="text-slate-600">
+                      Metode Pembayaran
+                    </span>
+
+                    <span className="font-medium text-slate-900">
+                      QRIS
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm">
+                    <span className="text-slate-600">
+                      Status
+                    </span>
+
+                    <span className="font-medium text-emerald-600">
+                      Berhasil
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-5 text-base font-bold">
+                    <span>Total Dibayar</span>
+
+                    <span className="text-[#0c59a0]">
+                      Rp57.600
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* BENEFITS */}
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
-              Payment
-            </p>
-
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Pembayaran yang terintegrasi dengan operasional bisnis.
             </h2>
@@ -106,9 +157,9 @@ export default function Payment() {
             {product.benefits.map(([title, description]) => (
               <div
                 key={title}
-                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
               >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#0c59a0]">
                   ✓
                 </div>
 
@@ -127,7 +178,10 @@ export default function Payment() {
       </section>
 
       {/* PLATFORM */}
-      <section id="platform" className="bg-slate-50 py-20">
+      <section
+        id="platform"
+        className="bg-slate-50 py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
           <div className="max-w-3xl">
@@ -143,8 +197,8 @@ export default function Payment() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 className="font-semibold">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+              <h3 className="font-semibold text-slate-900">
                 Point Of Sale
               </h3>
 
@@ -153,8 +207,8 @@ export default function Payment() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 className="font-semibold">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+              <h3 className="font-semibold text-slate-900">
                 Manajemen Stok
               </h3>
 
@@ -163,8 +217,8 @@ export default function Payment() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 className="font-semibold">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+              <h3 className="font-semibold text-slate-900">
                 Laporan
               </h3>
 
@@ -174,103 +228,35 @@ export default function Payment() {
             </div>
 
           </div>
-
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-4 pb-20 sm:px-6">
-        <div className="mx-auto max-w-5xl rounded-2xl bg-blue-600 px-6 py-14 text-center text-white">
+{/* CTA */}
+<section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
+  <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
 
-          <h2 className="text-3xl font-bold">
-            Siap Mengelola Pembayaran dengan Lebih Mudah?
-          </h2>
+    <h2 className="text-3xl font-bold">
+      Siap Mengelola Pembayaran dengan Lebih Mudah?
+    </h2>
 
-          <p className="mt-3 text-blue-100">
-            Kelola transaksi dan pembayaran dalam satu sistem.
-          </p>
+    <p className="mt-3 text-blue-100">
+      Kelola transaksi dan pembayaran dalam satu sistem.
+    </p>
 
-          <Link to="/login">
-            <Button
-              variant="secondary"
-              className="mt-6 px-6 py-3"
-            >
-              Mulai Sekarang
-            </Button>
-          </Link>
+    <Link to="/login">
+      <Button
+        variant="secondary"
+        className="mt-6 px-6 py-3"
+      >
+        Mulai Sekarang
+      </Button>
+    </Link>
 
-        </div>
-      </section>
+  </div>
+</section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
-
-          <div>
-            <p className="font-extrabold">
-              ERP SYSTEM
-            </p>
-
-            <p className="mt-3 text-sm text-slate-500">
-              Sistem ERP sederhana untuk membantu pengelolaan bisnis.
-            </p>
-          </div>
-
-          {[
-            [
-              "Product",
-              [
-                { label: "Products", path: "/produk" },
-                { label: "Inventory", path: "/inventory" },
-                { label: "Purchasing", path: "/purchase-orders" },
-                { label: "Reports", path: "/reports" },
-              ],
-            ],
-            [
-              "Company",
-              [
-                { label: "About", path: "/tentang" },
-                { label: "Contact", path: "/tentang/kontak" },
-                { label: "FAQ", path: "/informasi/faq" },
-              ],
-            ],
-            [
-              "Resources",
-              [
-                {
-                  label: "Documentation",
-                  path: "/informasi/dokumentasi",
-                },
-                {
-                  label: "Articles",
-                  path: "/informasi/artikel",
-                },
-              ],
-            ],
-          ].map(([heading, links]) => (
-            <div key={heading}>
-              <p className="mb-3 font-semibold">
-                {heading}
-              </p>
-
-              {links.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="block py-1 text-sm text-slate-600 transition hover:text-blue-600"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          ))}
-
-        </div>
-
-        <p className="border-t border-slate-100 py-5 text-center text-sm text-slate-500">
-          © 2026 ERP System. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
-  );
+  )
 }

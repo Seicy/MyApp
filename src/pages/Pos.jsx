@@ -1,50 +1,51 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-import Navbar from "../components/Navbar";
-import Button from "../components/Button";
+import Navbar from '../components/Navbar.jsx'
+import Button from '../components/Button.jsx'
+import Footer from '../components/Footer.jsx'
 
 const product = {
-  id: "Pos",
+  id: 'Pos',
 
-  name: "Point Of Sale",
+  name: 'Point Of Sale',
 
   headline: [
-    "Kasir secepat ",
-    "pelanggan memesan",
-    ".",
+    'Kasir secepat ',
+    'pelanggan memesan',
+    '.',
   ],
 
   lead:
-    "Layar kasir yang bisa dipelajari karyawan baru dalam 10 menit. Scan, ketuk, cetak struk, selesai.",
+    'Layar kasir yang bisa dipelajari karyawan baru dalam 10 menit. Scan, ketuk, cetak struk, selesai.',
 
   benefits: [
     [
-      "Scan barcode atau ketuk produk",
-      "Antrean pendek, salah input berkurang.",
+      'Scan barcode atau ketuk produk',
+      'Antrean pendek, salah input berkurang.',
     ],
     [
-      "Diskon dan promo satu ketuk",
-      "Voucher, diskon member, dan promo jam tertentu.",
+      'Diskon dan promo satu ketuk',
+      'Voucher, diskon member, dan promo jam tertentu.',
     ],
     [
-      "Tetap jalan saat internet putus",
-      "Transaksi disimpan lalu dikirim otomatis saat online.",
+      'Tetap jalan saat internet putus',
+      'Transaksi disimpan lalu dikirim otomatis saat online.',
     ],
   ],
 
-  mockTitle: "Keranjang",
+  mockTitle: 'Keranjang',
 
   rows: [
-    ["Kopi susu × 2", "Rp44.000"],
-    ["Roti bakar × 1", "Rp20.000"],
-    ["Diskon member", "−Rp6.400"],
+    ['Kopi susu × 2', 'Rp44.000'],
+    ['Roti bakar × 1', 'Rp20.000'],
+    ['Diskon member', '−Rp6.400'],
   ],
 
-  totalLabel: "Total",
-  total: "Rp57.600",
+  totalLabel: 'Total',
+  total: 'Rp57.600',
 
-  cta: "Coba kasir",
-};
+  cta: 'Coba kasir',
+}
 
 export default function Pos() {
   return (
@@ -52,14 +53,14 @@ export default function Pos() {
       <Navbar />
 
       {/* HERO */}
-      <section className="bg-[#0c59a0]">
+      <section className="bg-[#005a9e]">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
 
           {/* BREADCRUMB */}
-          <div className="mb-10 flex items-center gap-2 text-sm text-white">
+          <div className="mb-10 flex items-center gap-2 text-sm text-white/80">
             <Link
               to="/produk"
-              className="transition hover:text-blue-600"
+              className="transition-colors hover:text-white"
             >
               Produk
             </Link>
@@ -75,58 +76,68 @@ export default function Pos() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
 
             {/* LEFT */}
-            <div>
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+            <div className="min-w-0">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
                 {product.headline[0]}
 
-                <span className="text-blue-600">
+                <span className="text-white">
                   {product.headline[1]}
                 </span>
 
                 {product.headline[2]}
               </h1>
 
-              <p className="mt-5 max-w-lg text-lg text-slate-600">
+              <p className="mt-5 max-w-lg text-lg leading-8 text-white/90">
                 {product.lead}
               </p>
 
-              <a
-                href="#platform"
-                className="mt-8 inline-flex items-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-              >
-                {product.cta}
-              </a>
+              <div className="mt-8">
+                <a href="#platform">
+                  <Button
+                    variant="primary"
+                    className="border-2 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+                  >
+                    {product.cta}
+                  </Button>
+                </a>
+              </div>
             </div>
 
             {/* RIGHT - MOCKUP */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
-              <h3 className="mb-5 text-sm font-semibold text-slate-600">
-                {product.name} · {product.mockTitle}
-              </h3>
+            <div className="min-w-0">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
 
-              <div>
-                {product.rows.map(([label, value]) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm"
-                  >
-                    <span className="text-slate-600">
-                      {label}
+                <h3 className="mb-5 text-sm font-semibold text-slate-600">
+                  {product.name} · {product.mockTitle}
+                </h3>
+
+                <div>
+                  {product.rows.map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm"
+                    >
+                      <span className="text-slate-600">
+                        {label}
+                      </span>
+
+                      <span className="font-medium text-slate-900">
+                        {value}
+                      </span>
+                    </div>
+                  ))}
+
+                  <div className="flex items-center justify-between pt-5 text-base font-bold">
+                    <span>
+                      {product.totalLabel}
                     </span>
 
-                    <span className="font-medium text-slate-900">
-                      {value}
+                    <span className="text-[#0c59a0]">
+                      {product.total}
                     </span>
                   </div>
-                ))}
-
-                <div className="flex items-center justify-between pt-5 text-base font-bold">
-                  <span>{product.totalLabel}</span>
-
-                  <span className="text-blue-600">
-                    {product.total}
-                  </span>
                 </div>
+
               </div>
             </div>
 
@@ -148,9 +159,9 @@ export default function Pos() {
             {product.benefits.map(([title, description]) => (
               <div
                 key={title}
-                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
               >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-[#0c59a0]">
                   ✓
                 </div>
 
@@ -169,19 +180,14 @@ export default function Pos() {
       </section>
 
       {/* CTA */}
-      <section
-        id="harga"
-        className="px-4 pb-20 sm:px-6"
-      >
-        <div className="mx-auto max-w-5xl rounded-2xl bg-blue-600 px-6 py-14 text-center text-white">
-
+      <section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
+        <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
           <h2 className="text-3xl font-bold">
             Siap Mengelola Bisnis dengan Lebih Mudah?
           </h2>
 
           <p className="mt-3 text-blue-100">
-            Kelola data, transaksi, inventory, dan laporan
-            dalam satu sistem.
+            Kelola data, transaksi, inventory, dan laporan dalam satu sistem.
           </p>
 
           <Link to="/login">
@@ -192,73 +198,11 @@ export default function Pos() {
               Mulai Sekarang
             </Button>
           </Link>
-
         </div>
       </section>
 
-{/* FOOTER */}
-<footer className="border-t border-slate-200 bg-white">
-  <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
-
-    <div>
-      <p className="font-extrabold">
-        ERP SYSTEM
-      </p>
-
-      <p className="mt-3 text-sm text-slate-500">
-        Sistem ERP sederhana untuk membantu pengelolaan bisnis.
-      </p>
+      {/* FOOTER */}
+      <Footer />
     </div>
-
-    {[
-      [
-        'Product',
-        [
-          { label: 'Products', path: '/produk' },
-          { label: 'Inventory', path: '/inventory' },
-          { label: 'Purchasing', path: '/purchase-orders' },
-          { label: 'Reports', path: '/reports' },
-        ],
-      ],
-      [
-        'Company',
-        [
-          { label: 'About', path: '/tentang' },
-          { label: 'Contact', path: '/tentang/kontak' },
-          { label: 'FAQ', path: '/informasi/faq' },
-        ],
-      ],
-      [
-        'Resources',
-        [
-          { label: 'Documentation', path: '/informasi/dokumentasi' },
-          { label: 'Articles', path: '/informasi/artikel' },
-        ],
-      ],
-    ].map(([heading, links]) => (
-      <div key={heading}>
-        <p className="mb-3 font-semibold">
-          {heading}
-        </p>
-
-        {links.map((link) => (
-          <Link
-            key={link.path}
-            to={link.path}
-            className="block py-1 text-sm text-slate-600 transition hover:text-blue-600"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </div>
-    ))}
-
-  </div>
-
-  <p className="border-t border-slate-100 py-5 text-center text-sm text-slate-500">
-    © 2026 ERP System. All rights reserved.
-  </p>
-</footer>
-    </div>
-  );
+  )
 }
