@@ -531,7 +531,7 @@ export default function Landing() {
               <a href="#fitur">
                 <Button
                   variant="primary"
-                  className="border-3 border-white bg-[#f8481c] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
+                  className="border-3 border-white bg-[#f8481c] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f8481c]/90 hover:shadow-md"
                 >
                   Bebaskan waktu anda sekarang
                 </Button>
@@ -651,7 +651,7 @@ export default function Landing() {
                   className={`flex flex-none items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition ${
                     tab === key
                       ? 'border-2 border-white bg-[#f8481c] text-white shadow-sm'
-                      : 'border border-slate-200 bg-white text-[#f8481c] hover:bg-slate-50'
+                      : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   <Icon className="h-4 w-4" />

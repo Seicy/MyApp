@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+
 import Navbar from '../components/Navbar.jsx'
+import Button from '../components/Button.jsx'
+import Footer from '../components/Footer.jsx'
 
 const categories = [
   {
@@ -61,45 +64,61 @@ const quickLinks = [
 
 export default function Dokumentasi() {
   return (
-    <>
+    <div className="min-h-screen bg-white text-slate-900 transition-colors duration-200 dark:bg-slate-950 dark:text-white">
       <Navbar />
 
-      <main className="bg-white text-slate-900">
-        {/* Hero */}
-        <section className="bg-slate-50">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-blue-600">
-                Dokumentasi
-              </p>
+      <main>
 
-              <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
+        {/* HERO */}
+        <section className="bg-[#005a9e]">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+
+            {/* BREADCRUMB */}
+            <div className="mb-10 flex flex-wrap items-center gap-2 text-sm text-white/80">
+              <Link
+                to="/"
+                className="transition-colors hover:text-white"
+              >
+                Beranda
+              </Link>
+
+              <span>/</span>
+
+              <span className="font-medium text-white">
+                Dokumentasi
+              </span>
+            </div>
+
+            {/* HERO CONTENT */}
+            <div className="max-w-3xl">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
                 Panduan lengkap penggunaan ERP
               </h1>
 
-              <p className="mt-6 text-lg leading-8 text-slate-600">
+              <p className="mt-5 max-w-2xl text-base leading-8 text-white/90 sm:text-lg">
                 Temukan dokumentasi mengenai fitur, modul, dan penggunaan
                 sistem ERP untuk membantu Anda memahami sistem dengan lebih
                 mudah.
               </p>
             </div>
+
           </div>
         </section>
 
-        {/* Search */}
-        <section className="border-b border-slate-200">
+        {/* SEARCH */}
+        <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
           <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
             <div className="mx-auto max-w-2xl">
-              <div className="flex overflow-hidden rounded-xl border border-slate-300 bg-white focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100">
+              <div className="flex overflow-hidden rounded-xl border border-slate-300 bg-white focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 dark:border-slate-700 dark:bg-slate-900 dark:focus-within:border-blue-500 dark:focus-within:ring-blue-950">
                 <input
                   type="text"
                   placeholder="Cari dokumentasi..."
-                  className="w-full px-4 py-3 text-sm outline-none"
+                  className="w-full bg-transparent px-4 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white dark:placeholder:text-slate-500"
                 />
 
                 <button
                   type="button"
-                  className="bg-blue-600 px-5 text-sm font-semibold text-white transition hover:bg-blue-700"
+                  className="bg-[#0c59a0] px-5 text-sm font-semibold text-white transition hover:bg-[#0c59a0]/90"
                 >
                   Cari
                 </button>
@@ -108,19 +127,16 @@ export default function Dokumentasi() {
           </div>
         </section>
 
-        {/* Documentation Categories */}
-        <section className="py-20">
+        {/* DOCUMENTATION CATEGORIES */}
+        <section className="bg-white py-20 transition-colors duration-200 dark:bg-slate-950">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold text-blue-600">
-                Dokumentasi Sistem
-              </p>
 
-              <h2 className="mt-2 text-3xl font-bold">
+            <div className="max-w-2xl">
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">
                 Pelajari setiap bagian sistem
               </h2>
 
-              <p className="mt-4 text-slate-600">
+              <p className="mt-4 text-slate-600 dark:text-slate-400">
                 Pilih kategori dokumentasi yang ingin Anda pelajari.
               </p>
             </div>
@@ -129,17 +145,17 @@ export default function Dokumentasi() {
               {categories.map((category) => (
                 <div
                   key={category.title}
-                  className="rounded-2xl border border-slate-200 p-6 transition hover:-translate-y-1 hover:shadow-lg"
+                  className="rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-md dark:border-slate-700 dark:bg-slate-900 dark:hover:border-slate-600"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 font-bold text-blue-600">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 font-bold text-[#0c59a0] dark:bg-blue-950/50 dark:text-blue-400">
                     #
                   </div>
 
-                  <h3 className="mt-5 text-xl font-bold">
+                  <h3 className="mt-5 text-xl font-bold text-slate-900 dark:text-white">
                     {category.title}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     {category.description}
                   </p>
 
@@ -148,7 +164,7 @@ export default function Dokumentasi() {
                       <Link
                         key={item}
                         to="#"
-                        className="flex items-center justify-between rounded-lg bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-blue-50 hover:text-blue-600"
+                        className="flex items-center justify-between rounded-lg bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-blue-50 hover:text-[#0c59a0] dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-blue-400"
                       >
                         <span>{item}</span>
                         <span>→</span>
@@ -158,18 +174,16 @@ export default function Dokumentasi() {
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* Quick Links */}
-        <section className="bg-slate-50 py-20">
+        {/* QUICK LINKS */}
+        <section className="bg-slate-50 py-20 transition-colors duration-200 dark:bg-slate-900/50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="text-center">
-              <p className="text-sm font-semibold text-blue-600">
-                Bantuan
-              </p>
 
-              <h2 className="mt-2 text-3xl font-bold">
+            <div className="text-center">
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">
                 Butuh bantuan untuk memulai?
               </h2>
             </div>
@@ -178,13 +192,13 @@ export default function Dokumentasi() {
               {quickLinks.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-xl border border-slate-200 bg-white p-5"
+                  className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900"
                 >
-                  <h3 className="font-semibold">
+                  <h3 className="font-semibold text-slate-900 dark:text-white">
                     {item.title}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     {item.description}
                   </p>
 
@@ -194,46 +208,46 @@ export default function Dokumentasi() {
                         ? '/informasi/faq'
                         : '#'
                     }
-                    className="mt-4 inline-block text-sm font-semibold text-blue-600 hover:text-blue-700"
+                    className="mt-4 inline-block text-sm font-semibold text-[#0c59a0] hover:text-[#0c59a0]/80 dark:text-blue-400 dark:hover:text-blue-300"
                   >
                     Lihat panduan →
                   </Link>
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-blue-600">
-          <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-white">
+        <section className="bg-white px-4 pb-20 transition-colors duration-200 sm:px-6 dark:bg-slate-950">
+          <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
+
+            <h2 className="text-2xl font-bold sm:text-3xl">
               Tidak menemukan yang Anda cari?
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-blue-100">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
               Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai
               penggunaan sistem ERP.
             </p>
 
-            <Link
-              to="/tentang/kontak"
-              className="mt-8 inline-block rounded-lg bg-white px-5 py-3 text-sm font-semibold text-blue-600 transition hover:bg-blue-50"
-            >
-              Hubungi Kami
+            <Link to="/tentang/kontak">
+              <Button
+                variant="secondary"
+                className="mt-6 px-6 py-3"
+              >
+                Hubungi Kami
+              </Button>
             </Link>
+
           </div>
         </section>
+
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 text-center sm:px-6">
-          <p className="text-sm text-slate-500">
-            © 2026 ERP System. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </>
+      {/* FOOTER */}
+      <Footer />
+    </div>
   )
 }

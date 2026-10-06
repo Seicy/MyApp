@@ -1,5 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import Navbar from '../components/Navbar.jsx'
+import Button from '../components/Button.jsx'
+import Footer from '../components/Footer.jsx'
 
 const faqs = [
   {
@@ -52,104 +56,117 @@ export default function Faq() {
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-white text-slate-900 transition-colors duration-200 dark:bg-slate-950 dark:text-white">
       <Navbar />
 
-      <main className="bg-white text-slate-900">
-        {/* Hero */}
-        <section className="bg-slate-50">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold text-blue-600">
-                FAQ
-              </p>
+      {/* HERO */}
+      <section className="bg-[#005a9e]">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
 
-              <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
-                Pertanyaan yang sering ditanyakan
-              </h1>
+          {/* BREADCRUMB */}
+          <div className="mb-10 flex flex-wrap items-center gap-2 text-sm text-white/80">
+            <Link
+              to="/"
+              className="transition-colors hover:text-white"
+            >
+              Beranda
+            </Link>
 
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                Temukan jawaban untuk pertanyaan umum mengenai sistem ERP,
-                fitur, dan penggunaannya.
-              </p>
-            </div>
+            <span>/</span>
+
+            <span className="font-medium text-white">
+              FAQ
+            </span>
           </div>
-        </section>
 
-        {/* FAQ */}
-        <section className="py-20">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6">
-            <div className="space-y-3">
-              {faqs.map((faq, index) => {
-                const isOpen = openIndex === index
+          {/* HERO CONTENT */}
+          <div className="max-w-3xl">
+            <h1 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+              Pertanyaan yang sering ditanyakan
+            </h1>
 
-                return (
-                  <div
-                    key={faq.question}
-                    className="overflow-hidden rounded-xl border border-slate-200"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => toggleFaq(index)}
-                      className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition hover:bg-slate-50"
-                    >
-                      <span className="font-semibold text-slate-900">
-                        {faq.question}
-                      </span>
-
-                      <span
-                        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-lg text-slate-600 transition-transform ${
-                          isOpen ? 'rotate-45' : ''
-                        }`}
-                      >
-                        +
-                      </span>
-                    </button>
-
-                    {isOpen && (
-                      <div className="border-t border-slate-200 px-5 py-5">
-                        <p className="text-sm leading-7 text-slate-600">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="bg-slate-50 py-20">
-          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-            <h2 className="text-3xl font-bold">
-              Masih memiliki pertanyaan?
-            </h2>
-
-            <p className="mt-4 text-slate-600">
-              Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai
-              sistem dan layanan yang tersedia.
+            <p className="mt-5 max-w-2xl text-base leading-8 text-white/90 sm:text-lg">
+              Temukan jawaban untuk pertanyaan umum mengenai sistem ERP,
+              fitur, dan penggunaannya.
             </p>
+          </div>
 
-            <a
-              href="/tentang/kontak"
-              className="mt-7 inline-block rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-16 transition-colors duration-200 sm:py-20 dark:bg-slate-950">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index
+
+              return (
+                <div
+                  key={faq.question}
+                  className="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900"
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleFaq(index)}
+                    className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors hover:bg-slate-50 dark:hover:bg-slate-800"
+                  >
+                    <span className="font-semibold text-slate-900 dark:text-white">
+                      {faq.question}
+                    </span>
+
+                    <span
+                      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-lg text-slate-600 transition-transform dark:bg-slate-800 dark:text-slate-300 ${
+                        isOpen ? 'rotate-45' : ''
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="border-t border-slate-200 px-5 py-5 dark:border-slate-700">
+                      <p className="text-sm leading-7 text-slate-600 dark:text-slate-400">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white px-4 pb-20 transition-colors duration-200 sm:px-6 dark:bg-slate-950">
+        <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
+
+          <h2 className="text-2xl font-bold sm:text-3xl">
+            Masih memiliki pertanyaan?
+          </h2>
+
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
+            Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai
+            sistem dan layanan yang tersedia.
+          </p>
+
+          <Link to="/tentang/kontak">
+            <Button
+              variant="secondary"
+              className="mt-6 px-6 py-3"
             >
               Hubungi Kami
-            </a>
-          </div>
-        </section>
-      </main>
+            </Button>
+          </Link>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 text-center sm:px-6">
-          <p className="text-sm text-slate-500">
-            © 2026 ERP System. All rights reserved.
-          </p>
         </div>
-      </footer>
-    </>
+      </section>
+
+      {/* FOOTER */}
+      <Footer />
+    </div>
   )
 }
