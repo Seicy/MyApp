@@ -5,49 +5,50 @@ import Button from '../components/Button.jsx'
 import Footer from '../components/Footer.jsx'
 
 const product = {
-  id: 'Pos',
+  id: 'RetailFnb',
 
-  name: 'Point Of Sale',
+  name: 'Retail & FnB',
 
   headline: [
-    'Kasir secepat ',
-    'pelanggan memesan',
+    'Kelola bisnis retail ',
+    'dan FnB lebih mudah',
     '.',
   ],
 
   lead:
-    'Layar kasir yang bisa dipelajari karyawan baru dalam 10 menit. Scan, ketuk, cetak struk, selesai.',
+    'Kelola penjualan, produk, stok, dan operasional bisnis retail dan F&B dalam satu sistem yang lebih terorganisir.',
 
   benefits: [
     [
-      'Scan barcode atau ketuk produk',
-      'Antrean pendek, salah input berkurang.',
+      'Kelola penjualan dengan mudah',
+      'Pantau transaksi penjualan dan aktivitas bisnis dalam satu sistem.',
     ],
     [
-      'Diskon dan promo satu ketuk',
-      'Voucher, diskon member, dan promo jam tertentu.',
+      'Kelola produk dan stok',
+      'Pantau ketersediaan produk agar pengelolaan stok lebih teratur.',
     ],
     [
-      'Tetap jalan saat internet putus',
-      'Transaksi disimpan lalu dikirim otomatis saat online.',
+      'Data bisnis lebih terpusat',
+      'Informasi penjualan, produk, dan operasional dapat dikelola dalam satu platform.',
     ],
   ],
 
-  mockTitle: 'Keranjang',
+  mockTitle: 'Ringkasan Penjualan',
 
   rows: [
-    ['Kopi susu × 2', 'Rp44.000'],
-    ['Roti bakar × 1', 'Rp20.000'],
-    ['Diskon member', '−Rp6.400'],
+    ['Penjualan Hari Ini', 'Rp2.450.000'],
+    ['Produk Terjual', '128'],
+    ['Stok Produk', '356'],
   ],
 
-  totalLabel: 'Total',
-  total: 'Rp57.600',
+  totalLabel: 'Total Penjualan',
 
-  cta: 'Coba kasir',
+  total: 'Rp2.450.000',
+
+  cta: 'Coba Sekarang',
 }
 
-export default function Pos() {
+export default function RetailFnb() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
@@ -68,7 +69,7 @@ export default function Pos() {
             <span>/</span>
 
             <span className="font-medium text-white">
-              Point Of Sale
+              Retail & FnB
             </span>
           </div>
 
@@ -151,7 +152,7 @@ export default function Pos() {
 
           <div className="max-w-2xl">
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Kasir yang sederhana untuk digunakan setiap hari.
+              Solusi praktis untuk mengelola bisnis Retail & FnB.
             </h2>
           </div>
 
@@ -182,12 +183,13 @@ export default function Pos() {
       {/* CTA */}
       <section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
         <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
+
           <h2 className="text-3xl font-bold">
             Siap Mengelola Bisnis dengan Lebih Mudah?
           </h2>
 
           <p className="mt-3 text-blue-100">
-            Kelola data, transaksi, inventory, dan laporan dalam satu sistem.
+            Kelola penjualan, produk, inventory, dan laporan dalam satu sistem.
           </p>
 
           <Link to="/login">
@@ -198,6 +200,7 @@ export default function Pos() {
               Mulai Sekarang
             </Button>
           </Link>
+
         </div>
       </section>
 

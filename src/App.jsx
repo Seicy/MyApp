@@ -11,14 +11,10 @@ import PurchaseOrders from "./pages/PurchaseOrders";
 import Inventory from "./pages/Inventory";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
-import Pos from "./pages/Pos";
 import ProductList from "./pages/ProductList";
-import Payment from "./pages/Payment";
 import TakingOrder from "./pages/TakingOrder";
-import ManajemenStok from "./pages/ManajemenStok";
 import Akuntansi from "./pages/Akuntansi";
 import Umkm from "./pages/Umkm";
-import RetailFnb from "./pages/RetailFnb";
 import Perusahaan from "./pages/Perusahaan";
 import MultiCabang from "./pages/MultiCabang";
 import Artikel from "./pages/Artikel";
@@ -30,21 +26,22 @@ import Keunggulan from "./pages/Keunggulan";
 import Tentang from "./pages/Tentang";
 import Harga from "./pages/Harga";
 import SolutionList from './pages/SolutionList'
+import RetailFnb from './pages/Retail&FnB.jsx'
+import Logistic from './pages/Logistic.jsx'
+import Absensi from './pages/Absensi.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/produk/Pos" element={<Pos />} />
         <Route path="/produk" element={<ProductList />} />
-        <Route path="/produk/payment" element={<Payment />} />
         <Route path="/produk/taking-order" element={<TakingOrder />} />
-        <Route path="/produk/manajemen-stok" element={<ManajemenStok />} />
         <Route path="/produk/akuntansi" element={<Akuntansi />} />
         <Route path="/solusi/umkm" element={<Umkm />} />
-        <Route path="/solusi/retail-fnb" element={<RetailFnb />} />
         <Route path="/solusi/perusahaan" element={<Perusahaan />} />
         <Route path="/solusi/multi-cabang" element={<MultiCabang />} />
         <Route path="/informasi/artikel" element={<Artikel />} />
@@ -56,6 +53,9 @@ function App() {
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/harga" element={<Harga />} />
         <Route path="/solusi" element={<SolutionList />} />
+        <Route path="/produk/retail-fnb" element={<RetailFnb />} />
+        <Route path="/produk/logistic" element={<Logistic />} />
+        <Route path="/produk/absensi" element={<Absensi />} />
 
         <Route element={<DashboardLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />

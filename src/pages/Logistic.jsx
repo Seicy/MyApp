@@ -5,34 +5,34 @@ import Button from '../components/Button.jsx'
 import Footer from '../components/Footer.jsx'
 
 const product = {
-  name: 'Payment',
+  name: 'Logistic',
 
   headline: [
-    'Pembayaran lebih ',
-    'mudah dan terintegrasi',
+    'Kelola logistik ',
+    'lebih terorganisir',
     '.',
   ],
 
   lead:
-    'Kelola berbagai metode pembayaran dalam satu sistem agar proses transaksi lebih cepat dan mudah dipantau.',
+    'Kelola proses pengiriman, distribusi, dan pergerakan barang dalam satu sistem agar aktivitas logistik lebih mudah dipantau.',
 
   benefits: [
     [
-      'Berbagai metode pembayaran',
-      'Dukung proses pembayaran dengan berbagai metode sesuai kebutuhan bisnis.',
+      'Pantau proses pengiriman',
+      'Pantau status dan proses pengiriman barang agar lebih mudah dikontrol.',
     ],
     [
-      'Transaksi lebih cepat',
-      'Proses pembayaran terintegrasi langsung dengan sistem kasir.',
+      'Kelola distribusi barang',
+      'Atur pergerakan barang dari satu lokasi ke lokasi lainnya secara lebih terorganisir.',
     ],
     [
-      'Data pembayaran tercatat',
-      'Setiap transaksi tersimpan sehingga lebih mudah dipantau dan dikelola.',
+      'Data logistik lebih terpusat',
+      'Informasi pengiriman dan distribusi tersimpan dalam satu sistem sehingga lebih mudah dipantau.',
     ],
   ],
 }
 
-export default function Payment() {
+export default function Logistic() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
@@ -53,7 +53,7 @@ export default function Payment() {
             <span>/</span>
 
             <span className="font-medium text-white">
-              Payment
+              Logistic
             </span>
           </div>
 
@@ -82,7 +82,7 @@ export default function Payment() {
                     variant="primary"
                     className="border-2 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
                   >
-                    Pelajari Payment
+                    Pelajari Logistic
                   </Button>
                 </a>
               </div>
@@ -93,45 +93,47 @@ export default function Payment() {
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
 
                 <h3 className="mb-5 text-sm font-semibold text-slate-600">
-                  Payment · Pembayaran
+                  Logistic · Pengiriman
                 </h3>
 
                 <div>
                   <div className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm">
                     <span className="text-slate-600">
-                      Total Transaksi
+                      Total Pengiriman
                     </span>
 
                     <span className="font-medium text-slate-900">
-                      Rp57.600
+                      24
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm">
                     <span className="text-slate-600">
-                      Metode Pembayaran
+                      Dalam Pengiriman
                     </span>
 
                     <span className="font-medium text-slate-900">
-                      QRIS
+                      8
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between gap-4 border-b border-slate-100 py-4 text-sm">
                     <span className="text-slate-600">
-                      Status
+                      Berhasil Dikirim
                     </span>
 
                     <span className="font-medium text-emerald-600">
-                      Berhasil
+                      16
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between pt-5 text-base font-bold">
-                    <span>Total Dibayar</span>
+                    <span>
+                      Status Pengiriman
+                    </span>
 
                     <span className="text-[#0c59a0]">
-                      Rp57.600
+                      Terpantau
                     </span>
                   </div>
                 </div>
@@ -149,7 +151,7 @@ export default function Payment() {
 
           <div className="max-w-2xl">
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Pembayaran yang terintegrasi dengan operasional bisnis.
+              Pengelolaan logistik yang lebih mudah dan terorganisir.
             </h2>
           </div>
 
@@ -186,12 +188,12 @@ export default function Payment() {
 
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-              Semua Kebutuhan Bisnis dalam Satu Platform
+              Semua Kebutuhan Logistik dalam Satu Platform
             </h2>
 
             <p className="mt-3 text-slate-600">
-              Kelola pembayaran, transaksi, inventory, customer,
-              supplier, hingga laporan dalam satu sistem ERP.
+              Kelola pengiriman, distribusi, inventory, supplier,
+              customer, hingga laporan dalam satu sistem ERP.
             </p>
           </div>
 
@@ -199,31 +201,31 @@ export default function Payment() {
 
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
               <h3 className="font-semibold text-slate-900">
-                Point Of Sale
+                Pengiriman
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Proses transaksi dan pembayaran langsung dari sistem kasir.
+                Pantau proses pengiriman barang dan statusnya dalam satu sistem.
               </p>
             </div>
 
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
               <h3 className="font-semibold text-slate-900">
-                Manajemen Stok
+                Distribusi
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Pantau perubahan stok berdasarkan aktivitas transaksi.
+                Kelola pergerakan barang agar proses distribusi lebih terorganisir.
               </p>
             </div>
 
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
               <h3 className="font-semibold text-slate-900">
-                Laporan
+                Monitoring
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Data transaksi dapat digunakan untuk membantu membuat laporan bisnis.
+                Pantau aktivitas logistik dan kondisi pengiriman dengan lebih mudah.
               </p>
             </div>
 
@@ -231,29 +233,29 @@ export default function Payment() {
         </div>
       </section>
 
-{/* CTA */}
-<section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
-  <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
+      {/* CTA */}
+      <section className="bg-[#0c59a0] px-4 pb-20 sm:px-6">
+        <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
 
-    <h2 className="text-3xl font-bold">
-      Siap Mengelola Pembayaran dengan Lebih Mudah?
-    </h2>
+          <h2 className="text-3xl font-bold">
+            Siap Mengelola Logistik dengan Lebih Mudah?
+          </h2>
 
-    <p className="mt-3 text-blue-100">
-      Kelola transaksi dan pembayaran dalam satu sistem.
-    </p>
+          <p className="mt-3 text-blue-100">
+            Kelola pengiriman dan distribusi barang dalam satu sistem.
+          </p>
 
-    <Link to="/login">
-      <Button
-        variant="secondary"
-        className="mt-6 px-6 py-3"
-      >
-        Mulai Sekarang
-      </Button>
-    </Link>
+          <Link to="/login">
+            <Button
+              variant="secondary"
+              className="mt-6 px-6 py-3"
+            >
+              Mulai Sekarang
+            </Button>
+          </Link>
 
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* FOOTER */}
       <Footer />

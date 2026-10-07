@@ -5,34 +5,34 @@ import Button from '../components/Button.jsx'
 import Footer from '../components/Footer.jsx'
 
 const product = {
-  name: 'Manajemen Stok',
+  name: 'Absensi',
 
   headline: [
-    'Stok lebih ',
-    'terkontrol dan terpantau',
+    'Kelola absensi ',
+    'lebih mudah dan terpantau',
     '.',
   ],
 
   lead:
-    'Pantau persediaan barang secara lebih mudah agar ketersediaan stok selalu dapat diketahui.',
+    'Catat kehadiran karyawan secara lebih mudah agar data absensi dapat dipantau dalam satu sistem.',
 
   benefits: [
     [
-      'Pantau stok secara real-time',
-      'Lihat jumlah persediaan barang yang tersedia dalam satu sistem.',
+      'Catat kehadiran dengan mudah',
+      'Kelola data kehadiran karyawan dalam satu sistem yang terpusat.',
     ],
     [
-      'Kelola pergerakan stok',
-      'Catat perubahan stok dari transaksi masuk maupun keluar.',
+      'Pantau data absensi',
+      'Lihat informasi kehadiran karyawan secara lebih terorganisir.',
     ],
     [
-      'Kurangi risiko kehabisan stok',
-      'Dapatkan informasi stok yang membantu bisnis mengatur persediaan.',
+      'Data absensi lebih terpusat',
+      'Simpan dan kelola data kehadiran agar lebih mudah dipantau.',
     ],
   ],
 }
 
-export default function ManajemenStok() {
+export default function Absensi() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
@@ -53,7 +53,7 @@ export default function ManajemenStok() {
             <span>/</span>
 
             <span className="font-medium text-white">
-              Manajemen Stok
+              Absensi
             </span>
           </div>
 
@@ -82,7 +82,7 @@ export default function ManajemenStok() {
                     variant="primary"
                     className="border-2 border-white bg-[#0c59a0] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c59a0]/90 hover:shadow-md"
                   >
-                    Pelajari Manajemen Stok
+                    Pelajari Absensi
                   </Button>
                 </a>
               </div>
@@ -93,73 +93,76 @@ export default function ManajemenStok() {
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
 
                 <h3 className="mb-5 text-sm font-semibold text-slate-600">
-                  Manajemen Stok · Inventory
+                  Absensi · Kehadiran Karyawan
                 </h3>
 
                 <div className="space-y-3">
 
-                  <div className="flex items-center justify-between rounded-lg border border-slate-200 p-4">
+                  {/* KARYAWAN 1 */}
+                  <div className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 p-4">
                     <div>
                       <p className="text-sm font-semibold">
-                        Kopi Arabica
+                        Andi Pratama
                       </p>
 
                       <p className="mt-1 text-xs text-slate-500">
-                        SKU: KOP-001
+                        ID: EMP-001
                       </p>
                     </div>
 
                     <div className="text-right">
                       <p className="font-bold text-slate-900">
-                        128
+                        08:02
                       </p>
 
                       <p className="text-xs text-green-600">
-                        Stok Aman
+                        Hadir
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between rounded-lg border border-slate-200 p-4">
+                  {/* KARYAWAN 2 */}
+                  <div className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 p-4">
                     <div>
                       <p className="text-sm font-semibold">
-                        Roti Bakar
+                        Siti Rahma
                       </p>
 
                       <p className="mt-1 text-xs text-slate-500">
-                        SKU: ROT-002
+                        ID: EMP-002
                       </p>
                     </div>
 
                     <div className="text-right">
                       <p className="font-bold text-slate-900">
-                        24
+                        08:15
+                      </p>
+
+                      <p className="text-xs text-green-600">
+                        Hadir
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* KARYAWAN 3 */}
+                  <div className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 p-4">
+                    <div>
+                      <p className="text-sm font-semibold">
+                        Budi Santoso
+                      </p>
+
+                      <p className="mt-1 text-xs text-slate-500">
+                        ID: EMP-003
+                      </p>
+                    </div>
+
+                    <div className="text-right">
+                      <p className="font-bold text-slate-900">
+                        08:31
                       </p>
 
                       <p className="text-xs text-yellow-600">
-                        Stok Menipis
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between rounded-lg border border-slate-200 p-4">
-                    <div>
-                      <p className="text-sm font-semibold">
-                        Susu Fresh
-                      </p>
-
-                      <p className="mt-1 text-xs text-slate-500">
-                        SKU: SUS-003
-                      </p>
-                    </div>
-
-                    <div className="text-right">
-                      <p className="font-bold text-slate-900">
-                        8
-                      </p>
-
-                      <p className="text-xs text-red-600">
-                        Stok Rendah
+                        Terlambat
                       </p>
                     </div>
                   </div>
@@ -167,7 +170,6 @@ export default function ManajemenStok() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -178,11 +180,12 @@ export default function ManajemenStok() {
 
           <div className="max-w-2xl">
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Kelola persediaan dengan lebih mudah dan terorganisir.
+              Kelola absensi karyawan dengan lebih mudah dan terorganisir.
             </h2>
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
             {product.benefits.map(([title, description]) => (
               <div
                 key={title}
@@ -201,8 +204,8 @@ export default function ManajemenStok() {
                 </p>
               </div>
             ))}
-          </div>
 
+          </div>
         </div>
       </section>
 
@@ -215,12 +218,12 @@ export default function ManajemenStok() {
 
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-              Semua Kebutuhan Bisnis dalam Satu Platform
+              Semua Kebutuhan Absensi dalam Satu Platform
             </h2>
 
             <p className="mt-3 text-slate-600">
-              Kelola stok, transaksi, pesanan, customer,
-              supplier, hingga laporan dalam satu sistem ERP.
+              Kelola kehadiran, data karyawan, dan laporan absensi
+              dalam satu sistem ERP.
             </p>
           </div>
 
@@ -228,31 +231,31 @@ export default function ManajemenStok() {
 
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
               <h3 className="font-semibold text-slate-900">
-                Point Of Sale
+                Kehadiran
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Setiap transaksi dapat terhubung dengan perubahan persediaan.
+                Catat dan pantau kehadiran karyawan dalam satu sistem.
               </p>
             </div>
 
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
               <h3 className="font-semibold text-slate-900">
-                Taking Order
+                Data Karyawan
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Pesanan yang dicatat dapat membantu memperbarui informasi stok.
+                Kelola informasi karyawan yang berkaitan dengan data absensi.
               </p>
             </div>
 
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
               <h3 className="font-semibold text-slate-900">
-                Laporan
+                Laporan Absensi
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Pantau informasi persediaan melalui data dan laporan bisnis.
+                Pantau riwayat dan informasi absensi melalui laporan.
               </p>
             </div>
 
@@ -265,11 +268,11 @@ export default function ManajemenStok() {
         <div className="mx-auto max-w-5xl rounded-2xl bg-[#0c59a0] px-6 py-14 text-center text-white">
 
           <h2 className="text-3xl font-bold">
-            Siap Mengelola Stok dengan Lebih Mudah?
+            Siap Mengelola Absensi dengan Lebih Mudah?
           </h2>
 
           <p className="mt-3 text-blue-100">
-            Pantau dan kelola persediaan dalam satu sistem.
+            Catat dan pantau kehadiran karyawan dalam satu sistem.
           </p>
 
           <Link to="/login">
