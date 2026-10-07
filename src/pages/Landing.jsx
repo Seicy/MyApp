@@ -298,7 +298,7 @@ export default function Landing() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#021929] py-20">
+      <section className="bg-[#0c59a0] py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             {t.ctaTitle}
