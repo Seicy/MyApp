@@ -1,31 +1,48 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Sun, Moon } from 'lucide-react'
-
 import { useSettings } from '../context/SettingsContext.jsx'
 
 export default function Navbar() {
   const { language, setLanguage, theme, setTheme } = useSettings()
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-
-        {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center"
-        >
+    <header
+      className={`sticky top-0 z-40 border-b backdrop-blur transition-all duration-300 ${
+        scrolled
+          ? 'border-slate-200 bg-white/90 shadow-md dark:border-slate-800 dark:bg-slate-950/90'
+          : 'border-transparent bg-white/95 dark:bg-slate-950/95'
+      }`}
+    >
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 ${
+          scrolled ? 'h-16' : 'h-20'
+        }`}
+      >
+        <Link to="/" className="flex items-center">
           <img
             src="/logo/Logo.png"
             alt="BukaNota"
-            className="h-10 w-auto object-contain"
+            className={`w-auto object-contain transition-all duration-300 ${
+              scrolled ? 'h-10' : 'h-12'
+            }`}
           />
         </Link>
 
-        {/* Controls */}
         <div className="flex items-center gap-2">
-
-          {/* Language */}
           <div className="flex items-center rounded-lg border border-slate-200 p-1 dark:border-slate-700">
             <button
               onClick={() => setLanguage('id')}
@@ -50,7 +67,6 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Theme */}
           <button
             onClick={() =>
               setTheme(theme === 'light' ? 'dark' : 'light')
@@ -64,7 +80,6 @@ export default function Navbar() {
               <Sun className="h-4 w-4" />
             )}
           </button>
-
         </div>
       </div>
     </header>

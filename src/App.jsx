@@ -55,7 +55,7 @@ function App() {
         <Route path="/solusi" element={<SolutionList />} />
         <Route path="/produk/retail-fnb" element={<RetailFnb />} />
         <Route path="/produk/logistic" element={<Logistic />} />
-        <Route path="/produk/absensi" element={<Absensi />} />
+        <Route path="/produk/Absensi" element={<Absensi />} />
 
         <Route element={<DashboardLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />

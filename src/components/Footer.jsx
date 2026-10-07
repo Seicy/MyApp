@@ -1,6 +1,63 @@
 import { Link } from 'react-router-dom'
+import { useSettings } from '../context/SettingsContext.jsx'
 
 export default function Footer() {
+  const { language } = useSettings()
+
+  const t = {
+    id: {
+      connect: 'Terhubung dengan kami',
+
+      product: 'Produk',
+      products: 'Produk',
+      inventory: 'Inventory',
+      purchasing: 'Purchasing',
+      reports: 'Laporan',
+
+      company: 'Perusahaan',
+      about: 'Tentang Kami',
+      contact: 'Kontak',
+      faq: 'FAQ',
+
+      resources: 'Sumber Daya',
+      documentation: 'Dokumentasi',
+      articles: 'Artikel',
+
+      privacy: 'Kebijakan Privasi',
+      terms: 'Syarat dan Ketentuan',
+      cookies: 'Pengaturan Cookie',
+
+      copyright: '© 2024 Buka Nota. All Rights Reserved.',
+      companyInfo: 'BukaNota adalah produk dari PT Meta Digital Informasi.',
+    },
+
+    en: {
+      connect: 'Stay connected with us',
+
+      product: 'Product',
+      products: 'Products',
+      inventory: 'Inventory',
+      purchasing: 'Purchasing',
+      reports: 'Reports',
+
+      company: 'Company',
+      about: 'About',
+      contact: 'Contact',
+      faq: 'FAQ',
+
+      resources: 'Resources',
+      documentation: 'Documentation',
+      articles: 'Articles',
+
+      privacy: 'Privacy Policy',
+      terms: 'Terms and Conditions',
+      cookies: 'Cookie Settings',
+
+      copyright: '© 2024 Buka Nota. All Rights Reserved.',
+      companyInfo: 'BukaNota is a product of PT Meta Digital Informasi.',
+    },
+  }[language]
+
   return (
     <footer className="bg-[#021929]">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 text-slate-400 sm:px-6 md:grid-cols-4">
@@ -14,7 +71,7 @@ export default function Footer() {
           />
 
           <p className="mt-3 text-lg font-medium text-white">
-            Stay connect with us
+            {t.connect}
           </p>
 
           <div className="mt-4 flex items-center gap-3">
@@ -71,7 +128,7 @@ export default function Footer() {
         {/* Product */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Product
+            {t.product}
           </h3>
 
           <div className="mt-4 flex flex-col gap-3">
@@ -79,28 +136,28 @@ export default function Footer() {
               to="/produk"
               className="text-sm transition-colors hover:text-white"
             >
-              Products
+              {t.products}
             </Link>
 
             <Link
               to="/inventory"
               className="text-sm transition-colors hover:text-white"
             >
-              Inventory
+              {t.inventory}
             </Link>
 
             <Link
               to="/purchasing"
               className="text-sm transition-colors hover:text-white"
             >
-              Purchasing
+              {t.purchasing}
             </Link>
 
             <Link
               to="/reports"
               className="text-sm transition-colors hover:text-white"
             >
-              Reports
+              {t.reports}
             </Link>
           </div>
         </div>
@@ -108,7 +165,7 @@ export default function Footer() {
         {/* Company */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Company
+            {t.company}
           </h3>
 
           <div className="mt-4 flex flex-col gap-3">
@@ -116,21 +173,21 @@ export default function Footer() {
               to="/tentang"
               className="text-sm transition-colors hover:text-white"
             >
-              About
+              {t.about}
             </Link>
 
             <Link
               to="/tentang/kontak"
               className="text-sm transition-colors hover:text-white"
             >
-              Contact
+              {t.contact}
             </Link>
 
             <Link
               to="/informasi/faq"
               className="text-sm transition-colors hover:text-white"
             >
-              FAQ
+              {t.faq}
             </Link>
           </div>
         </div>
@@ -138,7 +195,7 @@ export default function Footer() {
         {/* Resources */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Resources
+            {t.resources}
           </h3>
 
           <div className="mt-4 flex flex-col gap-3">
@@ -146,14 +203,14 @@ export default function Footer() {
               to="/informasi/dokumentasi"
               className="text-sm transition-colors hover:text-white"
             >
-              Documentation
+              {t.documentation}
             </Link>
 
             <Link
               to="/informasi/artikel"
               className="text-sm transition-colors hover:text-white"
             >
-              Articles
+              {t.articles}
             </Link>
           </div>
         </div>
@@ -169,35 +226,34 @@ export default function Footer() {
               href="#"
               className="transition-colors hover:text-white"
             >
-              Kebijakan Privasi
+              {t.privacy}
             </a>
 
             <a
               href="/syarat-ketentuan"
               className="transition-colors hover:text-white"
             >
-              Syarat dan Ketentuan
+              {t.terms}
             </a>
 
             <a
               href="#"
               className="transition-colors hover:text-white"
             >
-              Pengaturan Cookie
+              {t.cookies}
             </a>
           </div>
 
           {/* Kanan */}
           <div className="text-left text-slate-500 md:text-right">
             <p>
-              © 2024 Buka Nota. All Rights Reserved.
+              {t.copyright}
             </p>
 
             <p className="mt-1">
-              BukaNota is a product of PT Meta Digital Informasi.
+              {t.companyInfo}
             </p>
           </div>
-
         </div>
       </div>
     </footer>
