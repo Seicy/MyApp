@@ -137,7 +137,7 @@ export default function Landing() {
     if (isMockupHover) return
 
     const interval = setInterval(() => {
-      setMockupIndex((prev) => (prev + 1) % 5)
+      setMockupIndex((prev) => (prev + 1) % 3)
     }, 5000)
 
     return () => clearInterval(interval)
@@ -186,14 +186,14 @@ export default function Landing() {
                   transform: `translateX(-${mockupIndex * 100}%)`,
                 }}
               >
-                {[0, 1, 2, 3, 4].map((index) => (
+                {['pos', 'ipad', 'phone'].map((device, index) => (
                   <div
-                    key={index}
+                    key={device}
                     className="flex w-full min-w-0 shrink-0 justify-center"
                   >
-                    <div className="w-full max-w-[360px] sm:max-w-[440px] md:max-w-[480px] lg:max-w-[520px] pb-10">
-                      <DashMockup />
-                    </div>
+<div className="flex w-full max-w-[360px] items-center justify-center sm:max-w-[440px] md:max-w-[480px] lg:max-w-[520px] pb-10">
+  <DashMockup device={device} />
+</div>
                   </div>
                 ))}
               </div>
@@ -201,7 +201,7 @@ export default function Landing() {
 
             {/* DOTS */}
             <div className="mt-3 flex justify-center gap-1.5">
-              {[0, 1, 2, 3, 4].map((index) => (
+              {[0, 1, 2].map((index) => (
                 <button
                   key={index}
                   type="button"
