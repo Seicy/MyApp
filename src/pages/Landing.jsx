@@ -152,7 +152,7 @@ export default function Landing() {
         <div className="mx-auto grid max-w-7xl min-w-0 items-center gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1.6fr_0.9fr] lg:gap-10 lg:py-24">
           
           {/* TEKS KIRI */}
-          <div className="min-w-0">
+          <div className="min-w-0 lg:-translate-y-16">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
               {t.heroTitle}
             </h1>
@@ -175,7 +175,7 @@ export default function Landing() {
 
           {/* CAROUSEL MOCKUP KANAN */}
           <div
-            className="relative min-h-[300px] min-w-0 w-full overflow-hidden sm:min-h-[360px] md:min-h-[440px] lg:min-h-[520px]"
+            className="relative min-h-[180px] min-w-0 w-full overflow-hidden sm:min-h-[230px] md:min-h-[320px] lg:min-h-[520px]"
             onMouseEnter={() => setIsMockupHover(true)}
             onMouseLeave={() => setIsMockupHover(false)}
           >
@@ -191,37 +191,13 @@ export default function Landing() {
                     key={index}
                     className="flex w-full min-w-0 shrink-0 justify-center"
                   >
-                    <div className="w-full max-w-[280px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[520px]">
+                    <div className="w-full max-w-[360px] sm:max-w-[440px] md:max-w-[480px] lg:max-w-[520px] pb-10">
                       <DashMockup />
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* PREVIOUS */}
-            <button
-              type="button"
-              onClick={() =>
-                setMockupIndex((prev) => (prev - 1 + 5) % 5)
-              }
-              className="absolute left-1 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-slate-700 shadow-md backdrop-blur transition hover:bg-white"
-              aria-label="Previous mockup"
-            >
-              ‹
-            </button>
-
-            {/* NEXT */}
-            <button
-              type="button"
-              onClick={() =>
-                setMockupIndex((prev) => (prev + 1) % 5)
-              }
-              className="absolute right-1 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-slate-700 shadow-md backdrop-blur transition hover:bg-white"
-              aria-label="Next mockup"
-            >
-              ›
-            </button>
 
             {/* DOTS */}
             <div className="mt-3 flex justify-center gap-1.5">
@@ -282,9 +258,9 @@ export default function Landing() {
             {t.benefits.map(([Icon, text]) => (
               <div
                 key={text}
-                className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#0c59a0] dark:bg-blue-950/40 dark:text-blue-400">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
                   <Icon className="h-5 w-5" />
                 </div>
 

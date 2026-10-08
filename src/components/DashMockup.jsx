@@ -1,121 +1,13 @@
-import { Package, Users, Truck, Boxes } from 'lucide-react'
+import Pos from '../assets/Pos.png'
 
-import BarChart from './BarChart.jsx'
-
-import { salesData, months, purchaseOrders, rupiah } from '../data/dummy.js'
-
-export default function DashMockup({ full = false }) {
-  const stats = [
-    [Package, 'Products', '1,248', 'text-blue-600', 'bg-blue-50'],
-    [Users, 'Customers', '352', 'text-cyan-600', 'bg-cyan-50'],
-    [Truck, 'Suppliers', '124', 'text-indigo-600', 'bg-indigo-50'],
-    [Boxes, 'Inventory', '8,410', 'text-sky-600', 'bg-sky-50'],
-  ]
-
+export default function DashMockup() {
   return (
-    <div className="card flex w-full min-w-0 max-w-full overflow-hidden rounded-2xl bg-white shadow-xl dark:bg-slate-900">
-
-      {full && (
-        <div className="hidden w-40 shrink-0 space-y-2 border-r border-slate-200 bg-slate-50 p-3 text-xs text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 sm:block">
-          <p className="font-bold text-slate-800 dark:text-white">
-            ERP SYSTEM
-          </p>
-
-          {[
-            'Dashboard',
-            'Products',
-            'Customers',
-            'Suppliers',
-            'Purchase',
-            'Inventory',
-            'Reports',
-          ].map((s, i) => (
-            <p
-              key={s}
-              className={`rounded px-2 py-1.5 ${
-                i === 0
-                  ? 'bg-blue-50 font-semibold text-blue-600 dark:bg-blue-950/50 dark:text-blue-400'
-                  : 'text-slate-500 dark:text-slate-400'
-              }`}
-            >
-              {s}
-            </p>
-          ))}
-        </div>
-      )}
-
-      <div className="min-w-0 w-full flex-1 space-y-3 overflow-hidden p-4">
-
-        {/* Stats */}
-        <div className="grid min-w-0 grid-cols-2 gap-2 sm:grid-cols-4">
-          {stats.map(([I, l, v, iconColor, iconBg]) => (
-            <div
-              key={l}
-              className="min-w-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800"
-            >
-              <div
-                className={`mb-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${iconBg}`}
-              >
-                <I className={`h-4 w-4 ${iconColor}`} />
-              </div>
-
-              <p className="truncate text-[11px] text-slate-500 dark:text-slate-400">
-                {l}
-              </p>
-
-              <p className="truncate text-sm font-bold text-slate-800 dark:text-white">
-                {v}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Sales Revenue + Recent Transactions */}
-        <div className="min-w-0 space-y-3">
-
-          {/* Sales Revenue */}
-          <div className="min-w-0 overflow-hidden rounded-lg border border-blue-100 bg-white p-3 dark:border-blue-900 dark:bg-slate-800">
-            <p className="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-200">
-              Sales / Revenue
-            </p>
-
-            <div className="min-w-0 max-w-full overflow-hidden">
-              <BarChart
-                data={salesData}
-                labels={months}
-                height={full ? 150 : 110}
-              />
-            </div>
-          </div>
-
-          {/* Recent Transactions */}
-          <div className="min-w-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-3 text-xs dark:border-slate-700 dark:bg-slate-800">
-            <p className="mb-2 font-semibold text-slate-700 dark:text-slate-200">
-              {full ? 'Purchase Orders' : 'Recent Transactions'}
-            </p>
-
-            {purchaseOrders.map((p) => (
-              <div
-                key={p.id}
-                className="flex min-w-0 justify-between gap-3 border-t border-slate-100 py-2 first:border-0 dark:border-slate-700"
-              >
-                <span className="shrink-0 text-slate-700 dark:text-slate-200">
-                  {p.no}
-                </span>
-
-                <span className="hidden min-w-0 truncate text-slate-500 dark:text-slate-400 sm:inline">
-                  {p.supplier}
-                </span>
-
-                <span className="shrink-0 font-medium text-slate-800 dark:text-white">
-                  {rupiah(p.total)}
-                </span>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </div>
+    <div className="flex w-full items-center justify-center overflow-hidden">
+      <img
+        src={Pos}
+        alt="POS Mockup"
+        className="h-auto w-full object-contain"
+      />
     </div>
   )
 }
